@@ -1,0 +1,593 @@
+
+        /* === RESET === */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0F172A;
+            overflow-x: hidden;
+        }
+
+        /* === KGS_HERO === */
+        .kgs-hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* === KGS_VIDEO_CONTAINER === */
+        .kgs-video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .kgs-video-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .kgs-video-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* === KGS_OVERLAY === */
+        .kgs-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            z-index: 3;
+        }
+
+        /* === KGS_CONTENT === */
+        .kgs-content {
+            position: relative;
+            z-index: 4;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .kgs-content-inner {
+            max-width: 700px;
+        }
+
+        /* === KGS_TYPOGRAPHY === */
+        .kgs-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .kgs-title-highlight {
+            color: #2FA4A9;
+            display: block;
+        }
+
+        .kgs-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: #AEE6E6;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* === KGS_BUTTONS === */
+        .kgs-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .kgs-btn {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid;
+            text-decoration: none;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kgs-btn-primary {
+            background: #2FA4A9;
+            color: #FFFFFF;
+            border-color: #2FA4A9;
+        }
+
+        .kgs-btn-primary:hover {
+            transform: translateY(-3px);
+            border-color: #FFFFFF;
+        }
+
+        .kgs-btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border-color: #E5E7EB;
+        }
+
+        .kgs-btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: #2FA4A9;
+            color: #2FA4A9;
+        }
+
+        /* === KGS_CONTROLS === */
+        .kgs-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .kgs-arrows {
+            display: flex;
+            gap: 15px;
+        }
+
+        .kgs-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .kgs-arrow:hover {
+            background: #2FA4A9;
+            border-color: #2FA4A9;
+        }
+
+        .kgs-progress-container {
+            width: 250px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .kgs-progress-bar {
+            height: 100%;
+            width: 100%;
+            background: #2FA4A9;
+            transform: translateX(-100%);
+        }
+
+        .kgs-indicators {
+            display: flex;
+            gap: 10px;
+        }
+
+        .kgs-indicator {
+            width: 12px;
+            height: 12px;
+            border: 1px solid #E5E7EB;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .kgs-indicator.active {
+            background: #2FA4A9;
+            border-color: #2FA4A9;
+        }
+
+        /* === KGS_MOBILE === */
+        @media (max-width: 768px) {
+            .kgs-hero {
+                min-height: 600px;
+            }
+            
+            .kgs-content {
+                text-align: center;
+                padding: 0 20px;
+                padding-bottom: 160px;
+            }
+            
+            .kgs-content-inner {
+                margin: 0 auto;
+            }
+            
+            .kgs-buttons {
+                justify-content: center;
+                gap: 12px;
+                margin-bottom: 0;
+            }
+            
+            .kgs-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 12px 20px;
+            }
+            
+            .kgs-controls {
+                bottom: 20px;
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 20px;
+            }
+            
+            .kgs-arrows {
+                order: 1;
+                gap: 20px;
+            }
+            
+            .kgs-progress-container {
+                order: 2;
+                width: 200px;
+            }
+            
+            .kgs-indicators {
+                order: 3;
+            }
+            
+            .kgs-overlay {
+                background: rgba(15, 23, 42, 0.75);
+            }
+            
+            .kgs-hero-title {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .kgs-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .kgs-hero {
+                min-height: 550px;
+            }
+            
+            .kgs-content {
+                padding-bottom: 140px;
+            }
+            
+            .kgs-hero-title {
+                font-size: 2rem;
+            }
+            
+            .kgs-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .kgs-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* VIDEO CENTERING FIX */
+        .kgs-video-slide {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+   
+
+
+
+        
+/* Color Variables */
+:root {
+    --light-teal: #6ECACB;
+    --pure-white: #FFFFFF;
+    --divider-grey: #EDEDED;
+    --pure-black: #000000;
+}
+
+/* Brands Section */
+.brands-section {
+    background-color: var(--pure-white);
+    padding: 80px 20px;
+    width: 100%;
+}
+
+.brands-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header with Divider Lines */
+.brands-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 70px;
+    width: 100%;
+}
+
+.header-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--divider-grey);
+    min-width: 40px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--light-teal);
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Brands Logo Row */
+.brands-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 70px;
+    width: 100%;
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    height: 70px;
+}
+
+.brand-logo {
+    height: 100%;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    filter: grayscale(0);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* Ensure brand logos retain their original colors */
+.brand-logo[alt*="Siemens"],
+.brand-logo[src*="Siemens"] {
+    /* Siemens blue color maintained */
+    filter: none;
+}
+
+.brand-logo[alt*="Schneider"],
+.brand-logo[src*="Schneider"] {
+    /* Schneider Electric colors maintained */
+    filter: none;
+}
+
+.brand-logo[alt*="Fanuc"],
+.brand-logo[src*="Fanuc"] {
+    /* Fanuc yellow color maintained */
+    filter: none;
+}
+
+.brand-logo[alt*="Bosch"],
+.brand-logo[src*="Bosch"] {
+    /* Bosch red color maintained */
+    filter: none;
+}
+
+.brand-logo[alt*="ABB"],
+.brand-logo[src*="ABB"] {
+    /* ABB colors maintained */
+    filter: none;
+}
+
+.brand-logo[alt*="Mitsubishi"],
+.brand-logo[src*="Mitsubishi"] {
+    /* Mitsubishi red color maintained */
+    filter: none;
+}
+
+/* Responsive Design */
+
+/* Tablet: Allow logos to wrap if needed */
+@media (max-width: 1024px) {
+    .brands-logos {
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+    }
+    
+    .brand-item {
+        height: 60px;
+        flex: 0 0 calc(33.333% - 50px);
+        min-width: 150px;
+    }
+    
+    .brand-logo {
+        max-width: 160px;
+    }
+}
+
+/* Medium Tablet */
+@media (max-width: 768px) {
+    .brands-section {
+        padding: 60px 16px;
+    }
+    
+    .brands-header {
+        margin-bottom: 50px;
+        gap: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        padding: 0 15px;
+    }
+    
+    .brands-logos {
+        gap: 40px;
+    }
+    
+    .brand-item {
+        height: 55px;
+        flex: 0 0 calc(33.333% - 40px);
+        min-width: 130px;
+    }
+    
+    .brand-logo {
+        max-width: 140px;
+    }
+}
+
+/* Mobile: Stack logos vertically */
+@media (max-width: 600px) {
+    .brands-header {
+        margin-bottom: 40px;
+        gap: 15px;
+    }
+    
+    .header-line {
+        min-width: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        white-space: normal;
+        line-height: 1.4;
+        padding: 0 10px;
+    }
+    
+    .brands-logos {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .brand-item {
+        height: 50px;
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .brand-logo {
+        max-width: 200px;
+        width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .brands-section {
+        padding: 40px 12px;
+    }
+    
+    .brands-header {
+        margin-bottom: 30px;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .brand-item {
+        height: 45px;
+        max-width: 180px;
+    }
+    
+    .brand-logo {
+        max-width: 180px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+    .section-title {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+    
+    .brand-item {
+        height: 40px;
+        max-width: 160px;
+    }
+    
+    .brand-logo {
+        max-width: 160px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .brands-section {
+        padding: 40px 20px;
+        break-inside: avoid;
+    }
+    
+    .brands-logos {
+        gap: 40px;
+    }
+    
+    .brand-item {
+        height: 50px;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .brand-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .brand-logo {
+        transition: none;
+    }
+}
+
+/* Dark mode consideration - maintain white background */
+@media (prefers-color-scheme: dark) {
+    .brands-section {
+        background-color: var(--pure-white);
+    }
+    
+    .brand-logo {
+        filter: brightness(1.05) contrast(1.05);
+    }
+}

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KG Engineering Services</title>
+    <style>
+        /* CSS RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FFFFFF;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        /* KG ENGINEERING LOADER */
+        .kg-loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0F172A;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .kg-loader-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        /* ENGINEERING GRID SYSTEM */
+        .kg-grid-system {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .kg-grid-line {
+            position: absolute;
+            background: #2FA4A9;
+            opacity: 0;
+        }
+
+        /* HORIZONTAL LINES */
+        .kg-grid-line.horizontal {
+            width: 0;
+            height: 1px;
+            transform-origin: left center;
+        }
+
+        .kg-grid-line.horizontal.top {
+            top: 50px;
+            left: 50%;
+            animation: kgDrawHorizontal 0.6s cubic-bezier(0.86, 0, 0.07, 1) 0.2s forwards;
+        }
+
+        .kg-grid-line.horizontal.bottom {
+            bottom: 50px;
+            left: 50%;
+            animation: kgDrawHorizontal 0.6s cubic-bezier(0.86, 0, 0.07, 1) 0.8s forwards;
+        }
+
+        /* VERTICAL LINES */
+        .kg-grid-line.vertical {
+            width: 1px;
+            height: 0;
+            transform-origin: center top;
+        }
+
+        .kg-grid-line.vertical.left {
+            left: 50px;
+            top: 50%;
+            animation: kgDrawVertical 0.6s cubic-bezier(0.86, 0, 0.07, 1) 0.4s forwards;
+        }
+
+        .kg-grid-line.vertical.right {
+            right: 50px;
+            top: 50%;
+            animation: kgDrawVertical 0.6s cubic-bezier(0.86, 0, 0.07, 1) 1s forwards;
+        }
+
+        /* PRECISION CROSSHAIR */
+        .kg-crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            transform: translate(-50%, -50%);
+        }
+
+        .kg-crosshair-line {
+            position: absolute;
+            background: #2FA4A9;
+        }
+
+        .kg-crosshair-vertical {
+            width: 1px;
+            height: 0;
+            left: 50%;
+            top: 0;
+            animation: kgExpandVertical 0.4s cubic-bezier(0.86, 0, 0.07, 1) 1.2s forwards;
+        }
+
+        .kg-crosshair-horizontal {
+            width: 0;
+            height: 1px;
+            top: 50%;
+            left: 0;
+            animation: kgExpandHorizontal 0.4s cubic-bezier(0.86, 0, 0.07, 1) 1.4s forwards;
+        }
+
+        /* GEAR MECHANISM */
+        .kg-gear-system {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            transform: translate(-50%, -50%);
+        }
+
+        .kg-gear-outer {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #AEE6E6;
+            border-radius: 50%;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            transform: rotate(0deg);
+            animation: kgGearRotate 1.2s linear 1.6s forwards;
+        }
+
+        .kg-gear-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #2FA4A9;
+            border-radius: 50%;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            transform: translate(-50%, -50%) rotate(45deg);
+            opacity: 0;
+            animation: kgGearAppear 0.3s ease 1.8s forwards;
+        }
+
+        /* COMPANY BRANDING */
+        .kg-company-brand {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            animation: kgBrandAppear 0.4s ease 2.1s forwards;
+        }
+
+        .kg-company-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .kg-brand-divider {
+            width: 0;
+            height: 2px;
+            background: #2FA4A9;
+            margin: 0 auto;
+            animation: kgDividerExpand 0.4s cubic-bezier(0.86, 0, 0.07, 1) 2.4s forwards;
+        }
+
+        /* ANIMATION KEYFRAMES */
+        @keyframes kgDrawHorizontal {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes kgDrawVertical {
+            0% {
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                height: 100%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes kgExpandVertical {
+            0% {
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                height: 80px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes kgExpandHorizontal {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 80px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes kgGearRotate {
+            0% {
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes kgGearAppear {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes kgBrandAppear {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @keyframes kgDividerExpand {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100px;
+            }
+        }
+
+        /* LOADER EXIT ANIMATION */
+        @keyframes kgLoaderExit {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .kg-loader-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .kg-grid-line.horizontal.top {
+                top: 40px;
+            }
+
+            .kg-grid-line.horizontal.bottom {
+                bottom: 40px;
+            }
+
+            .kg-grid-line.vertical.left {
+                left: 40px;
+            }
+
+            .kg-grid-line.vertical.right {
+                right: 40px;
+            }
+
+            .kg-gear-system {
+                width: 100px;
+                height: 100px;
+            }
+
+            .kg-gear-outer {
+                width: 100px;
+                height: 100px;
+            }
+
+            .kg-gear-inner {
+                width: 50px;
+                height: 50px;
+            }
+
+            .kg-company-name {
+                font-size: 16px;
+                letter-spacing: 1.5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .kg-loader-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .kg-grid-line.horizontal.top {
+                top: 30px;
+            }
+
+            .kg-grid-line.horizontal.bottom {
+                bottom: 30px;
+            }
+
+            .kg-grid-line.vertical.left {
+                left: 30px;
+            }
+
+            .kg-grid-line.vertical.right {
+                right: 30px;
+            }
+
+            .kg-crosshair {
+                width: 60px;
+                height: 60px;
+            }
+
+            .kg-gear-system {
+                width: 80px;
+                height: 80px;
+            }
+
+            .kg-gear-outer {
+                width: 80px;
+                height: 80px;
+            }
+
+            .kg-gear-inner {
+                width: 40px;
+                height: 40px;
+            }
+
+            .kg-company-name {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+
+            .kg-brand-divider {
+                height: 1px;
+            }
+        }
+
+        /* DEMO CONTENT (Hidden during loader) */
+        .kg-main-content {
+            display: none;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .kg-content-heading {
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 20px;
+        }
+
+        .kg-content-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+
+        .kg-content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .kg-content-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .kg-card-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 12px;
+        }
+
+        .kg-card-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #000000;
+        }
+
+        /* Responsive content */
+        @media (max-width: 992px) {
+            .kg-content-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .kg-content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .kg-content-heading {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- KG ENGINEERING LOADER -->
+    <div class="kg-loader-overlay" id="kgLoader">
+        <div class="kg-loader-container">
+            <!-- Engineering Grid System -->
+            <div class="kg-grid-system">
+                <div class="kg-grid-line horizontal top"></div>
+                <div class="kg-grid-line horizontal bottom"></div>
+                <div class="kg-grid-line vertical left"></div>
+                <div class="kg-grid-line vertical right"></div>
+            </div>
+
+            <!-- Precision Crosshair -->
+            <div class="kg-crosshair">
+                <div class="kg-crosshair-line kg-crosshair-vertical"></div>
+                <div class="kg-crosshair-line kg-crosshair-horizontal"></div>
+            </div>
+
+            <!-- Gear Mechanism -->
+            <div class="kg-gear-system">
+                <div class="kg-gear-outer"></div>
+                <div class="kg-gear-inner"></div>
+            </div>
+
+            <!-- Company Branding -->
+            <div class="kg-company-brand">
+                <div class="kg-company-name">KG ENGINEERING SERVICES</div>
+                <div class="kg-brand-divider"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden during loader) -->
+    <div class="kg-main-content" id="kgContent">
+        <h1 class="kg-content-heading">Industrial Engineering Excellence</h1>
+        <p class="kg-content-text">KG Engineering Services provides precision manufacturing solutions with 34+ years of industrial expertise. Our systems are engineered for maximum durability, efficiency, and performance.</p>
+        
+        <div class="kg-content-grid">
+            <div class="kg-content-card">
+                <h3 class="kg-card-title">Precision Machining</h3>
+                <p class="kg-card-text">Advanced CNC machining with ±0.001mm tolerance capabilities for aerospace, automotive, and industrial applications.</p>
+            </div>
+            <div class="kg-content-card">
+                <h3 class="kg-card-title">Quality Assurance</h3>
+                <p class="kg-card-text">ISO 9001:2015 certified quality management systems with full traceability and statistical process control.</p>
+            </div>
+            <div class="kg-content-card">
+                <h3 class="kg-card-title">Engineering Services</h3>
+                <p class="kg-card-text">Design for manufacturability, process optimization, and technical documentation for complex industrial projects.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // KG ENGINEERING LOADER SCRIPT
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('kgLoader');
+            const mainContent = document.getElementById('kgContent');
+            
+            // Set loader to play only once (2.8 seconds total animation)
+            setTimeout(() => {
+                // Add exit animation class
+                loader.style.animation = 'kgLoaderExit 0.6s cubic-bezier(0.86, 0, 0.07, 1) forwards';
+                
+                // Show main content immediately
+                setTimeout(() => {
+                    mainContent.style.display = 'block';
+                }, 100);
+                
+                // Remove loader from DOM after animation
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 700);
+                
+            }, 2800); // Total animation duration: 2.8 seconds
+            
+            // Emergency timeout (in case animations fail)
+            setTimeout(() => {
+                if (loader.style.display !== 'none') {
+                    loader.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }
+            }, 4000);
+            
+            // Prevent loader from being interrupted
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' || e.key === ' ') {
+                    e.preventDefault();
+                }
+            });
+            
+            // Disable right-click on loader
+            loader.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Simulate page load for demo purposes
+            // In real implementation, this would be triggered by window.load event
+            console.log('KG Engineering Services Loader Initialized');
+            console.log('Animation Sequence:');
+            console.log('0.2s - Top horizontal line');
+            console.log('0.4s - Left vertical line');
+            console.log('0.8s - Bottom horizontal line');
+            console.log('1.0s - Right vertical line');
+            console.log('1.2s - Crosshair vertical');
+            console.log('1.4s - Crosshair horizontal');
+            console.log('1.6s - Outer gear rotation');
+            console.log('1.8s - Inner gear appearance');
+            console.log('2.1s - Company brand text');
+            console.log('2.4s - Brand divider expansion');
+            console.log('2.8s - Loader exit');
+        });
+        
+        // Ensure loader works on slow connections
+        window.addEventListener('load', function() {
+            console.log('Page fully loaded, loader sequence complete');
+        });
+        
+        // Handle resize events to maintain precision
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                console.log('Window resized - Maintaining engineering precision alignment');
+            }, 250);
+        });
+    </script>
+</body>
+</html>

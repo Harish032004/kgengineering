@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Industrial Engineering</title>
+    <style>
+        /* === RESET === */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0F172A;
+            overflow-x: hidden;
+        }
+
+        /* === KGS_HERO === */
+        .kgs-hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* === KGS_VIDEO_CONTAINER === */
+        .kgs-video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .kgs-video-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .kgs-video-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* === KGS_OVERLAY === */
+        .kgs-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            z-index: 3;
+        }
+
+        /* === KGS_CONTENT === */
+        .kgs-content {
+            position: relative;
+            z-index: 4;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .kgs-content-inner {
+            max-width: 700px;
+        }
+
+        /* === KGS_TYPOGRAPHY === */
+        .kgs-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .kgs-title-highlight {
+            color: #2FA4A9;
+            display: block;
+        }
+
+        .kgs-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: #AEE6E6;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* === KGS_BUTTONS === */
+        .kgs-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .kgs-btn {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid;
+            text-decoration: none;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kgs-btn-primary {
+            background: #2FA4A9;
+            color: #FFFFFF;
+            border-color: #2FA4A9;
+        }
+
+        .kgs-btn-primary:hover {
+            transform: translateY(-3px);
+            border-color: #FFFFFF;
+        }
+
+        .kgs-btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border-color: #E5E7EB;
+        }
+
+        .kgs-btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: #2FA4A9;
+            color: #2FA4A9;
+        }
+
+        /* === KGS_CONTROLS === */
+        .kgs-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .kgs-arrows {
+            display: flex;
+            gap: 15px;
+        }
+
+        .kgs-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .kgs-arrow:hover {
+            background: #2FA4A9;
+            border-color: #2FA4A9;
+        }
+
+        .kgs-progress-container {
+            width: 250px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .kgs-progress-bar {
+            height: 100%;
+            width: 100%;
+            background: #2FA4A9;
+            transform: translateX(-100%);
+        }
+
+        .kgs-indicators {
+            display: flex;
+            gap: 10px;
+        }
+
+        .kgs-indicator {
+            width: 12px;
+            height: 12px;
+            border: 1px solid #E5E7EB;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .kgs-indicator.active {
+            background: #2FA4A9;
+            border-color: #2FA4A9;
+        }
+
+        /* === KGS_MOBILE === */
+        @media (max-width: 768px) {
+            .kgs-hero {
+                min-height: 600px;
+            }
+            
+            .kgs-content {
+                text-align: center;
+                padding: 0 20px;
+                padding-bottom: 160px;
+            }
+            
+            .kgs-content-inner {
+                margin: 0 auto;
+            }
+            
+            .kgs-buttons {
+                justify-content: center;
+                gap: 12px;
+                margin-bottom: 0;
+            }
+            
+            .kgs-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 12px 20px;
+            }
+            
+            .kgs-controls {
+                bottom: 20px;
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 20px;
+            }
+            
+            .kgs-arrows {
+                order: 1;
+                gap: 20px;
+            }
+            
+            .kgs-progress-container {
+                order: 2;
+                width: 200px;
+            }
+            
+            .kgs-indicators {
+                order: 3;
+            }
+            
+            .kgs-overlay {
+                background: rgba(15, 23, 42, 0.75);
+            }
+            
+            .kgs-hero-title {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .kgs-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .kgs-hero {
+                min-height: 550px;
+            }
+            
+            .kgs-content {
+                padding-bottom: 140px;
+            }
+            
+            .kgs-hero-title {
+                font-size: 2rem;
+            }
+            
+            .kgs-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .kgs-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* VIDEO CENTERING FIX */
+        .kgs-video-slide {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section with Unique Names -->
+    <section class="kgs-hero">
+        <!-- Video Background -->
+        <div class="kgs-video-container">
+            <video class="kgs-video-slide active" id="kgs-video1" muted playsinline loop>
+                <source src="WhatsApp Video 2026-01-29 at 1.46.46 PM.mp4" type="video/mp4">
+            </video>
+            <video class="kgs-video-slide" id="kgs-video2" muted playsinline loop>
+                <source src="WhatsApp Video 2026-01-29 at 1.46.46 PM.mp4" type="video/mp4">
+            </video>
+            <video class="kgs-video-slide" id="kgs-video3" muted playsinline loop>
+                <source src="WhatsApp Video 2026-01-29 at 1.46.46 PM.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Overlay -->
+        <div class="kgs-overlay"></div>
+
+        <!-- Content -->
+        <div class="kgs-content">
+            <div class="kgs-content-inner">
+                <h1 class="kgs-hero-title">Precision Industrial<br><span class="kgs-title-highlight">Engineering Solutions</span></h1>
+                <p class="kgs-subtitle">Advanced manufacturing systems engineered for reliability, efficiency, and peak performance in demanding industrial environments.</p>
+                <div class="kgs-buttons">
+                    <a href="#capabilities" class="kgs-btn kgs-btn-primary">Explore Our Capabilities</a>
+                    <a href="https://wa.me/9789029012" target="_blank" class="kgs-btn kgs-btn-secondary">
+                        <i class="fab fa-whatsapp"></i> Talk to an Engineer
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="kgs-controls">
+            <div class="kgs-arrows">
+                <div class="kgs-arrow kgs-prev">‹</div>
+                <div class="kgs-arrow kgs-next">›</div>
+            </div>
+            <div class="kgs-progress-container">
+                <div class="kgs-progress-bar" id="kgs-progressBar"></div>
+            </div>
+            <div class="kgs-indicators">
+                <div class="kgs-indicator active" data-index="0"></div>
+                <div class="kgs-indicator" data-index="1"></div>
+                <div class="kgs-indicator" data-index="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // KGS Hero Controller - Unique Names
+        class KGSHeroController {
+            constructor() {
+                this.videos = document.querySelectorAll('.kgs-video-slide');
+                this.indicators = document.querySelectorAll('.kgs-indicator');
+                this.progressBar = document.getElementById('kgs-progressBar');
+                this.prevBtn = document.querySelector('.kgs-prev');
+                this.nextBtn = document.querySelector('.kgs-next');
+                
+                this.currentIndex = 0;
+                this.totalVideos = this.videos.length;
+                this.autoRotateInterval = 3000;
+                this.rotationTimer = null;
+                this.manualOverrideTimer = null;
+                this.isAutoRotating = true;
+                
+                this.initializeKGSHero();
+            }
+            
+            initializeKGSHero() {
+                // Start first video
+                this.videos[0].play();
+                
+                // Setup event listeners
+                this.setupKGSEvents();
+                
+                // Start auto rotation
+                this.startKGSRotation();
+                this.resetKGSProgress();
+            }
+            
+            setupKGSEvents() {
+                // Arrow buttons
+                this.prevBtn.addEventListener('click', () => this.kgsNavigate(-1));
+                this.nextBtn.addEventListener('click', () => this.kgsNavigate(1));
+                
+                // Indicators
+                this.indicators.forEach(indicator => {
+                    indicator.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.dataset.index);
+                        this.kgsGoToVideo(index);
+                    });
+                });
+            }
+            
+            kgsNavigate(direction) {
+                const newIndex = (this.currentIndex + direction + this.totalVideos) % this.totalVideos;
+                this.kgsSwitchVideo(newIndex);
+                this.handleKGSManualInteraction();
+            }
+            
+            kgsGoToVideo(index) {
+                if (index !== this.currentIndex) {
+                    this.kgsSwitchVideo(index);
+                    this.handleKGSManualInteraction();
+                }
+            }
+            
+            kgsSwitchVideo(newIndex) {
+                // Hide current video
+                this.videos[this.currentIndex].classList.remove('active');
+                this.indicators[this.currentIndex].classList.remove('active');
+                this.videos[this.currentIndex].pause();
+                
+                // Update index
+                this.currentIndex = newIndex;
+                
+                // Show new video
+                this.videos[this.currentIndex].currentTime = 0;
+                this.videos[this.currentIndex].play();
+                this.videos[this.currentIndex].classList.add('active');
+                this.indicators[this.currentIndex].classList.add('active');
+                
+                // Reset progress bar
+                this.resetKGSProgress();
+            }
+            
+            handleKGSManualInteraction() {
+                // Stop auto rotation
+                this.isAutoRotating = false;
+                clearInterval(this.rotationTimer);
+                
+                // Resume after 8 seconds
+                clearTimeout(this.manualOverrideTimer);
+                this.manualOverrideTimer = setTimeout(() => {
+                    this.isAutoRotating = true;
+                    this.startKGSRotation();
+                }, 8000);
+            }
+            
+            startKGSRotation() {
+                if (!this.isAutoRotating) return;
+                
+                clearInterval(this.rotationTimer);
+                this.rotationTimer = setInterval(() => {
+                    const newIndex = (this.currentIndex + 1) % this.totalVideos;
+                    this.kgsSwitchVideo(newIndex);
+                }, this.autoRotateInterval);
+            }
+            
+            resetKGSProgress() {
+                // Reset progress bar animation
+                this.progressBar.style.transition = 'none';
+                this.progressBar.style.transform = 'translateX(-100%)';
+                
+                // Force reflow
+                void this.progressBar.offsetWidth;
+                
+                // Start new animation
+                this.progressBar.style.transition = `transform ${this.autoRotateInterval}ms linear`;
+                this.progressBar.style.transform = 'translateX(0%)';
+            }
+        }
+        
+        // Initialize KGS Hero
+        document.addEventListener('DOMContentLoaded', () => {
+            const kgsHero = new KGSHeroController();
+            
+            // Pause when tab is hidden
+            document.addEventListener('visibilitychange', () => {
+                const activeVideo = document.querySelector('.kgs-video-slide.active');
+                if (document.hidden) {
+                    activeVideo.pause();
+                } else {
+                    activeVideo.play();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

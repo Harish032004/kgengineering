@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Page - K G Engineering Services</title>
+    <!-- Add your CSS links -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+/* Existing CSS... */
+
+/* ========== MOBILE NAVIGATION OVERLAY FIX ========== */
+.mobile-nav-overlay {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%) !important;
+}
+
+.mobile-nav-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+    border-bottom: 2px solid #333 !important;
+    padding: 15px 20px !important;
+}
+
+.mobile-overlay-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+}
+
+.mobile-overlay-logo img {
+    width: auto !important;
+    height: 70px !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+    filter: brightness(1.2) contrast(1.1) !important;
+    background: transparent !important;
+    padding: 5px !important;
+    border-radius: 5px !important;
+}
+
+.close-btn {
+    color: #eee !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.close-btn:hover {
+    color: #6ECACB !important;
+    background: rgba(110, 202, 203, 0.1) !important;
+    border-color: #6ECACB !important;
+    transform: rotate(90deg) !important;
+}
+
+.mobile-nav {
+    background: transparent !important;
+    padding: 20px 0 !important;
+}
+
+.mobile-nav-menu {
+    background: transparent !important;
+}
+
+.mobile-nav-link {
+    color: #eee !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    margin: 5px 15px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(110, 202, 203, 0.15) !important;
+    color: #fff !important;
+    border-color: rgba(110, 202, 203, 0.3) !important;
+    transform: translateX(5px) !important;
+}
+
+.mobile-nav-link i {
+    color: #6ECACB !important;
+    margin-right: 12px !important;
+    width: 20px !important;
+    text-align: center !important;
+}
+
+.mobile-dropdown-menu {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin: 0 15px 5px 15px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.mobile-dropdown-item {
+    color: #ddd !important;
+    border-left: 3px solid rgba(110, 202, 203, 0.3) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    margin: 2px 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-dropdown-item:hover {
+    background: rgba(110, 202, 203, 0.15) !important;
+    color: #fff !important;
+    border-left-color: #6ECACB !important;
+    padding-left: 35px !important;
+}
+
+.mobile-submenu-items {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-left: 3px solid rgba(110, 202, 203, 0.2) !important;
+}
+
+/* Mobile dropdown icons */
+.mobile-dropdown-icon {
+    color: #6ECACB !important;
+    transition: transform 0.3s ease !important;
+}
+
+.mobile-dropdown.active .mobile-dropdown-icon {
+    transform: rotate(45deg) !important;
+    color: #fff !important;
+}
+
+/* Scrollbar styling for mobile overlay */
+.mobile-nav-overlay::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.mobile-nav-overlay::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.mobile-nav-overlay::-webkit-scrollbar-thumb {
+    background: rgba(110, 202, 203, 0.5) !important;
+    border-radius: 4px !important;
+}
+
+.mobile-nav-overlay::-webkit-scrollbar-thumb:hover {
+    background: rgba(110, 202, 203, 0.8) !important;
+}
+</style>
+     <!-- TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="container">
+            <div class="company-info">
+                <span class="company-name">
+                    <i class="fas fa-industry"></i>
+                    K G ENGINEERING SERVICES
+                </span>
+            </div>
+            <div class="top-right-info">
+                <span class="timing">
+                    <i class="far fa-clock"></i>
+                    Mon-Fri: 8:00 AM - 6:00 PM
+                </span>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER - Hidden on mobile -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo - No text, only logo -->
+            <div class="logo-section">
+                <div class="logo-container">
+                    <div class="logo">
+                        <!-- Large Logo image -->
+                        <img src="kges-logo.webp" alt="K G Engineering Services Logo" 
+     class="mobile-logo-image" id="headerLogo" 
+     style="width: auto; height: 80px; max-height: 80px; object-fit: contain; filter: brightness(1.2) contrast(1.1); background-color: transparent;"> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info - Hidden on mobile -->
+            <div class="contact-section">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p class="contact-label">Call Us Today</p>
+                        <p class="contact-info">1-800-555-ENGINEER</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p class="contact-label">Email Us</p>
+                        <p class="contact-info">info@kgengineering.com</p>
+                    </div>
+                </div>
+                <div class="contact-item cta-contact">
+                    <button class="quote-btn" onclick="sendQuoteRequest()">
+                        <i class="fas fa-file-alt"></i>
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<nav class="main-navigation" id="mainNav">
+    <div class="container">
+        <!-- Mobile Logo in Header - Larger -->
+        <div class="mobile-logo-container">
+            <a href="index.html" class="mobile-logo-link">
+                 <img src="kges-logo.webp" alt="K G Engineering Services Logo" 
+             class="mobile-logo-image" id="headerLogo" 
+             style="width: 150px; height: 80px; max-height: 80px; object-fit: contain;  filter: brightness(1.2) contrast(1.1); background-color: transparent;">
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" style="color: #eee;">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link"style="color: #eee;">
+                    <i class="fas fa-info-circle"></i>
+                    About Us
+                </a>
+            </li>
+            
+            <!-- Services Dropdown -->
+            <li class="nav-item desktop-dropdown" style="color: #eee;">
+                <a href="#" class="nav-link desktop-dropdown-toggle" style="color: #eee;">
+                    <i class="fas fa-cogs"></i>
+                    Services
+                    <i class="fas fa-chevron-down desktop-dropdown-icon"></i>
+                </a>
+                <div class="desktop-dropdown-menu">
+                    <a href="energysavingsmartmonitor.html" class="desktop-dropdown-item">Energy Saving Smart Monitor</a>
+                    
+                    <!-- Industrial Lubricants with Submenu -->
+                    <div class="desktop-dropdown-submenu">
+                        <a href="#" class="desktop-dropdown-item desktop-submenu-toggle">
+                            <span>Industrial Lubricants</span>
+                            <i class="fas fa-chevron-right desktop-submenu-icon"></i>
+                        </a>
+                        <div class="desktop-submenu-items">
+                            <a href="grease.html" class="desktop-dropdown-item">Greases</a>
+                            <a href="oils.html" class="desktop-dropdown-item">Oils</a>
+                            <a href="pastes.html" class="desktop-dropdown-item">Pastes</a>
+                            <a href="specialist.html" class="desktop-dropdown-item">Specialist</a>
+                        </div>
+                    </div>
+
+                    <!-- <a href="motors.html" class="desktop-dropdown-item">Energy Efficient Motors</a> -->
+                    <a href="industrialcleaner.html" class="desktop-dropdown-item">Industrial Cleaners</a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link" style="color: #eee;">
+                    <i class="fas fa-phone"></i>
+                    Contact
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Navigation Toggle -->
+        <div class="mobile-nav-toggle">
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+        });
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+        });
+    }
+    
+    // Mobile dropdown toggle
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle, .mobile-submenu-toggle');
+    
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (this.classList.contains('mobile-submenu-toggle')) {
+                const submenu = this.closest('.mobile-dropdown-submenu');
+                submenu.classList.toggle('active');
+            } else {
+                const dropdown = this.closest('.mobile-dropdown');
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
+    // Close all dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.mobile-dropdown')) {
+            document.querySelectorAll('.mobile-dropdown, .mobile-dropdown-submenu').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+});
+</script>
+
+<!-- MOBILE NAVIGATION OVERLAY -->
+<div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-header">
+        <div class="mobile-overlay-logo">
+            <img src="kges-logo.webp" alt="K G Engineering Services Logo" 
+             class="mobile-logo-image" id="headerLogo" 
+             style="width: 150px; height: 80px; max-height: 80px; object-fit: contain;  filter: brightness(1.2) contrast(1.1); background-color: transparent;">
+        </div>
+        <button class="close-btn" id="closeBtn" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About Us</a></li>
+            
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-nav-link mobile-dropdown-toggle">
+                    <span><i class="fas fa-cogs"></i> Services</span>
+                    <i class="fas fa-plus mobile-dropdown-icon"></i>
+                </a>
+                <div class="mobile-dropdown-menu">
+                    <a href="energysavingsmartmonitor.html" class="mobile-dropdown-item">Energy Saving Smart Monitor</a>
+                    
+                    <div class="mobile-dropdown-submenu">
+                        <a href="#" class="mobile-dropdown-item mobile-submenu-toggle">
+                            <span>Industrial Lubricants</span>
+                            <i class="fas fa-plus mobile-dropdown-icon"></i>
+                        </a>
+                        <div class="mobile-submenu-items">
+                            <a href="grease.html" class="mobile-dropdown-item">Greases</a>
+                            <a href="oils.html" class="mobile-dropdown-item">Oils</a>
+                            <a href="pastes.html" class="mobile-dropdown-item">Pastes</a>
+                            <a href="specialist.html" class="mobile-dropdown-item">Specialist</a>
+                        </div>
+                    </div>
+
+                    <!-- <a href="motors.html" class="mobile-dropdown-item">Energy Efficient Motors</a> -->
+                    <a href="industrialcleaner.html" class="mobile-dropdown-item">Industrial Cleaners</a>
+                </div>
+            </li>
+            
+            <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+    </nav>
+</div>
+<style>
+/* Common Styles */
+.nav-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+    display: none;
+}
+
+/* Mobile Navigation Overlay - Initially Hidden */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-nav-overlay.active {
+    left: 0;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.mobile-overlay-logo-image {
+    height: 40px;
+    width: auto;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.close-btn:hover {
+    color: #007bff;
+}
+
+.mobile-nav {
+    padding: 20px 0;
+}
+
+.mobile-nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    background: #f8f9fa;
+    color: #007bff;
+}
+
+.mobile-nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-toggle {
+    justify-content: space-between;
+}
+
+.mobile-dropdown-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-icon {
+    transform: rotate(45deg);
+}
+
+.mobile-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f9f9;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    max-height: 1000px;
+}
+
+.mobile-dropdown-item {
+    display: block;
+    padding: 12px 30px;
+    color: #333;
+    text-decoration: none;
+    border-left: 3px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.mobile-dropdown-item:hover {
+    background: #f0f0f0;
+    color: #007bff;
+    border-left-color: #007bff;
+    padding-left: 35px;
+}
+
+.mobile-dropdown-submenu.active .mobile-submenu-items {
+    max-height: 500px;
+}
+
+.mobile-submenu-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f0f0f0;
+}
+
+/* Desktop Styles - Only apply on large screens */
+@media (min-width: 992px) {
+    .nav-menu {
+        display: flex; /* Show desktop navigation */
+    }
+    
+    .mobile-nav-toggle {
+        display: none; /* Hide hamburger on desktop */
+    }
+    
+    .mobile-nav-overlay {
+        display: none; /* Hide mobile overlay on desktop */
+    }
+    
+    /* Desktop Dropdown Styles */
+    .desktop-dropdown {
+        position: relative;
+    }
+    
+    .desktop-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .desktop-dropdown-icon {
+        font-size: 12px;
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+    }
+    
+    .desktop-dropdown:hover .desktop-dropdown-icon {
+        transform: rotate(180deg);
+    }
+    
+    .desktop-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 250px;
+        background: white;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        border-radius: 5px;
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .desktop-dropdown:hover .desktop-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .desktop-dropdown-item {
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        position: relative;
+        border-left: 3px solid transparent;
+    }
+    
+    .desktop-dropdown-item:hover {
+        background: #f8f9fa;
+        color: #007bff;
+        border-left-color: #007bff;
+        padding-left: 25px;
+    }
+    
+    /* Desktop Submenu */
+    .desktop-dropdown-submenu {
+        position: relative;
+    }
+    
+    .desktop-submenu-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .desktop-submenu-icon {
+        font-size: 10px;
+        transition: transform 0.3s ease;
+    }
+    
+    .desktop-submenu-items {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        min-width: 220px;
+        background: white;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        border-radius: 0 5px 5px 5px;
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .desktop-dropdown-submenu:hover .desktop-submenu-items {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    
+    .desktop-dropdown-submenu:hover .desktop-submenu-icon {
+        transform: rotate(90deg);
+    }
+    
+    .desktop-dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: transparent;
+    }
+    
+    .desktop-dropdown-submenu::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        background: transparent;
+    }
+}
+
+/* Mobile Styles - Only apply on small screens */
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+    
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .hamburger-line {
+        width: 25px;
+        height: 2px;
+        background: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-btn:hover .hamburger-line {
+        background: #007bff;
+    }
+    
+    /* Hide mobile logo on desktop, show on mobile */
+    .mobile-logo-container {
+        display: block;
+    }
+}
+</style>
+<style>
+    /* Mobile Logo in Header - Larger */
+.mobile-logo-image {
+    height: 50px; /* Increased from 40px */
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* For even larger screens, make it bigger */
+@media (max-width: 768px) {
+    .mobile-logo-image {
+        height: 55px; /* Even larger on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .mobile-logo-image {
+        height: 60px; /* Maximum size for very small screens */
+    }
+}
+
+/* Logo inside Hamburger Menu */
+.mobile-overlay-logo-image {
+    height: 60px; /* Larger than header logo */
+    width: auto;
+    max-width: 200px;
+}
+
+/* Adjust header padding to accommodate larger logo */
+.mobile-nav-header {
+    padding: 15px 20px; /* Adjusted padding */
+    min-height: 80px; /* Ensure enough height */
+    align-items: center;
+}
+
+/* Desktop logo - keep original size or adjust as needed */
+@media (min-width: 992px) {
+    .mobile-logo-image {
+        height: 45px; /* Standard size for desktop */
+    }
+}
+</style>
+
+ 
+  
+  
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // WhatsApp Quote Function
+        function sendQuoteRequest() {
+            let pageTitle = document.title || "Product/Service";
+            let pageURL = window.location.href;
+            
+            let message = encodeURIComponent(
+                `*Quote Request*\n\n` +
+                `Hello! I would like to get a quote for:\n` +
+                `• Page: ${pageTitle}\n` +
+                `• URL: ${pageURL}\n\n` +
+                `Please provide me with pricing details and available options.\n\n` +
+                `_This message was sent from your website_`
+            );
+            
+            let whatsappURL = `https://wa.me/9789029012?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+<script src="dummy.js"></script>
+</html>

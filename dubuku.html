@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Motor Showcase</title>
+    <style>
+        :root {
+            --primary-aqua: #2FA4A9;
+            --soft-aqua-bg: #E6F7F8;
+            --dark-heading: #0F172A;
+            --body-text: #1F2937;
+            --neutral-border: #E5E7EB;
+            --card-white: #FFFFFF;
+            --hover-aqua: #238A8E;
+            --transition-speed: 0.5s;
+            --easing: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fcfcfc; padding: 40px 0; overflow-x: hidden; }
+
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { color: var(--dark-heading); font-size: 1.8rem; text-transform: uppercase; margin-bottom: 10px; }
+        .header-underline { width: 60px; height: 3px; background-color: var(--primary-aqua); margin: 0 auto; }
+
+        /* --- Carousel Container --- */
+        .carousel-outer {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px; /* Space for arrows */
+        }
+
+        /* Mobile specific padding to keep arrows visible on screen edges */
+        @media (max-width: 768px) {
+            .carousel-outer { padding: 0 45px; }
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+            touch-action: pan-y; /* Improves mobile touch stability */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform var(--transition-speed) var(--easing);
+            will-change: transform;
+        }
+
+        /* --- Product Card Responsive Widths --- */
+        .card-wrapper { flex: 0 0 100%; padding: 10px; }
+        @media (min-width: 640px) { .card-wrapper { flex: 0 0 50%; } }
+        @media (min-width: 1024px) { .card-wrapper { flex: 0 0 33.333%; } }
+        @media (min-width: 1280px) { .card-wrapper { flex: 0 0 25%; } }
+
+        .motor-card {
+            background: var(--card-white);
+            border: 1px solid var(--neutral-border);
+            border-radius: 4px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease;
+        }
+
+        .motor-card:hover { border-color: var(--primary-aqua); }
+
+        .motor-image-box {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+        }
+
+        .motor-image-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+        .motor-title { color: var(--dark-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; text-align: center; }
+        .motor-specs { color: var(--primary-aqua); font-weight: 600; font-size: 0.85rem; margin-bottom: 10px; text-align: center; }
+        .motor-desc { font-size: 0.85rem; color: var(--body-text); margin-bottom: 15px; text-align: center; line-height: 1.4; }
+
+        .quote-btn {
+            margin-top: auto;
+            background: var(--primary-aqua);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        /* --- Arrows: Always Visible --- */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--card-white);
+            border: 2px solid var(--primary-aqua);
+            color: var(--primary-aqua);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover { background: var(--primary-aqua); color: white; }
+        .nav-btn.prev { left: 10px; }
+        .nav-btn.next { right: 10px; }
+
+        /* Ensure arrows are clickable on mobile */
+        @media (max-width: 480px) {
+            .nav-btn { width: 35px; height: 35px; font-size: 1rem; }
+            .nav-btn.prev { left: 5px; }
+            .nav-btn.next { right: 5px; }
+        }
+        /* --- Enhanced Hover Animations --- */
+
+.motor-card {
+    background: var(--card-white);
+    border: 1px solid var(--neutral-border);
+    border-radius: 4px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Smooth transition for all properties */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* The "Lift" effect */
+.motor-card:hover {
+    transform: translateY(-10px); /* Card moves up */
+    border-color: var(--primary-aqua);
+    box-shadow: 0 12px 24px rgba(47, 164, 169, 0.15); /* Soft Aqua shadow */
+}
+
+.motor-image-box {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    overflow: hidden; /* Keeps the zoomed image inside the box */
+    border-radius: 2px;
+}
+
+.motor-image-box img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.5s ease; /* Smooth zoom for image */
+}
+
+/* Image Zoom effect on hover */
+.motor-card:hover .motor-image-box img {
+    transform: scale(1.1); /* Image gets 10% bigger */
+}
+
+.quote-btn {
+    margin-top: auto;
+    background: var(--primary-aqua);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button "Pulse" or Color shift on hover */
+.quote-btn:hover {
+    background: var(--hover-aqua);
+    letter-spacing: 0.5px; /* Subtle text expansion */
+    box-shadow: 0 4px 12px rgba(35, 138, 142, 0.3);
+}
+    </style>
+</head>
+<body>
+
+<section class="energy-motors-section">
+    <div class="section-header">
+        <h2>Energy Efficient Motors</h2>
+        <div class="header-underline"></div>
+    </div>
+
+    <div class="carousel-outer">
+        <button class="nav-btn prev" id="prevBtn" aria-label="Previous">❮</button>
+
+        <div class="carousel-track-container" id="trackContainer">
+            <div class="carousel-track" id="track">
+                
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-1.jpg" alt="Motor 1"></div>
+                        <h3 class="motor-title">Premium IE3 Series</h3>
+                        <p class="motor-specs" data-p="15 kW" data-v="480V" data-r="1800">15 kW • 480V • 1800 RPM</p>
+                        <p class="motor-desc">High-efficiency induction motor for heavy industrial use.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-2.jpg" alt="Motor 2"></div>
+                        <h3 class="motor-title">Titan Heavy Duty</h3>
+                        <p class="motor-specs" data-p="22 kW" data-v="415V" data-r="1440">22 kW • 415V • 1440 RPM</p>
+                        <p class="motor-desc">Rugged construction for mining and extreme conditions.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-3.jpg" alt="Motor 3"></div>
+                        <h3 class="motor-title">Ultra IE4 Series</h3>
+                        <p class="motor-specs" data-p="7.5 kW" data-v="480V" data-r="3600">7.5 kW • 480V • 3600 RPM</p>
+                        <p class="motor-desc">Maximum energy savings with low thermal footprint.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-4.jpg" alt="Motor 4"></div>
+                        <h3 class="motor-title">Compact Servo X</h3>
+                        <p class="motor-specs" data-p="2 kW" data-v="230V" data-r="3000">2 kW • 230V • 3000 RPM</p>
+                        <p class="motor-desc">Precision control for high-speed automation lines.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-5.jpg" alt="Motor 5"></div>
+                        <h3 class="motor-title">VFD Optimized Pro</h3>
+                        <p class="motor-specs" data-p="11 kW" data-v="400V" data-r="1500">11 kW • 400V • 1500 RPM</p>
+                        <p class="motor-desc">Specifically designed for Variable Frequency Drive use.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-6.jpg" alt="Motor 6"></div>
+                        <h3 class="motor-title">Explosion Proof Exd</h3>
+                        <p class="motor-specs" data-p="18.5 kW" data-v="415V" data-r="1450">18.5 kW • 415V • 1450 RPM</p>
+                        <p class="motor-desc">Certified safety for oil, gas, and chemical plants.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-7.jpg" alt="Motor 7"></div>
+                        <h3 class="motor-title">Aluminum Shell Lite</h3>
+                        <p class="motor-specs" data-p="5.5 kW" data-v="380V" data-r="2800">5.5 kW • 380V • 2800 RPM</p>
+                        <p class="motor-desc">Lightweight design for HVAC and pump applications.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+                <div class="card-wrapper">
+                    <article class="motor-card">
+                        <div class="motor-image-box"><img src="your-image-8.jpg" alt="Motor 8"></div>
+                        <h3 class="motor-title">Marine Duty M1</h3>
+                        <p class="motor-specs" data-p="30 kW" data-v="440V" data-r="1750">30 kW • 440V • 1750 RPM</p>
+                        <p class="motor-desc">Corrosion-resistant coating for maritime environments.</p>
+                        <a href="#" class="quote-btn" onclick="sendWhatsApp(this)">Get a Quote →</a>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="nav-btn next" id="nextBtn" aria-label="Next">❯</button>
+    </div>
+</section>
+
+<script>
+    const track = document.getElementById('track');
+    const container = document.getElementById('trackContainer');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    
+    let originalCards = Array.from(track.children);
+    let index = 0;
+    let isTransitioning = false;
+
+    // --- Dynamic Cloning for Infinite Scroll ---
+    const cloneCount = 4;
+    for(let i = 0; i < cloneCount; i++) {
+        track.appendChild(originalCards[i].cloneNode(true));
+        track.insertBefore(originalCards[originalCards.length - 1 - i].cloneNode(true), track.firstChild);
+    }
+
+    const updateCarousel = (instant = false) => {
+        const cardWidth = track.querySelector('.card-wrapper').offsetWidth;
+        const offset = (index + cloneCount) * cardWidth;
+        track.style.transition = instant ? 'none' : `transform var(--transition-speed) var(--easing)`;
+        track.style.transform = `translateX(-${offset}px)`;
+    };
+
+    const next = () => { if(!isTransitioning) { isTransitioning = true; index++; updateCarousel(); }};
+    const prev = () => { if(!isTransitioning) { isTransitioning = true; index--; updateCarousel(); }};
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (index >= originalCards.length) { index = 0; updateCarousel(true); }
+        if (index <= -1) { index = originalCards.length - 1; updateCarousel(true); }
+    });
+
+    // --- Touch Swipe Support ---
+    let startX = 0;
+    container.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive: true});
+    container.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) next();
+        if (endX - startX > 50) prev();
+    }, {passive: true});
+
+    window.addEventListener('resize', () => updateCarousel(true));
+    window.onload = () => updateCarousel(true);
+
+    function sendWhatsApp(element) {
+        const card = element.closest('.motor-card');
+        const name = card.querySelector('.motor-title').innerText;
+        const specs = card.querySelector('.motor-specs');
+        const msg = `Hello,\n\nI’m interested in:\nProduct: ${name}\nSpecs: ${specs.innerText}\n\nPlease share pricing.`;
+        window.open(`https://wa.me/919789029012?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>

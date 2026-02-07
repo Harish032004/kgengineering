@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KULROOF | Industrial Roofing & Flooring Solutions</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="kulroof.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+
+
+ <!-- KG ENGINEERING LOADER -->
+    <div class="kg-loader-overlay" id="kgLoader">
+        <div class="kg-loader-container">
+            <!-- Engineering Grid System -->
+            <div class="kg-grid-system">
+                <div class="kg-grid-line horizontal top"></div>
+                <div class="kg-grid-line horizontal bottom"></div>
+                <div class="kg-grid-line vertical left"></div>
+                <div class="kg-grid-line vertical right"></div>
+            </div>
+
+            <!-- Precision Crosshair -->
+            <div class="kg-crosshair">
+                <div class="kg-crosshair-line kg-crosshair-vertical"></div>
+                <div class="kg-crosshair-line kg-crosshair-horizontal"></div>
+            </div>
+
+            <!-- Gear Mechanism -->
+            <div class="kg-gear-system">
+                <div class="kg-gear-outer"></div>
+                <div class="kg-gear-inner"></div>
+            </div>
+
+            <!-- Company Branding -->
+            <div class="kg-company-brand">
+                <div class="kg-company-name">KG ENGINEERING SERVICES</div>
+                <div class="kg-brand-divider"></div>
+            </div>
+        </div>
+    </div>
+
+    
+         <style>
+/* Existing CSS... */
+
+/* ========== MOBILE NAVIGATION OVERLAY FIX ========== */
+.mobile-nav-overlay {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%) !important;
+}
+
+.mobile-nav-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+    border-bottom: 2px solid #333 !important;
+    padding: 15px 20px !important;
+}
+
+.mobile-overlay-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+}
+
+.mobile-overlay-logo img {
+    width: auto !important;
+    height: 70px !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+    filter: brightness(1.2) contrast(1.1) !important;
+    background: transparent !important;
+    padding: 5px !important;
+    border-radius: 5px !important;
+}
+
+.close-btn {
+    color: #eee !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.close-btn:hover {
+    color: #6ECACB !important;
+    background: rgba(110, 202, 203, 0.1) !important;
+    border-color: #6ECACB !important;
+    transform: rotate(90deg) !important;
+}
+
+.mobile-nav {
+    background: transparent !important;
+    padding: 20px 0 !important;
+}
+
+.mobile-nav-menu {
+    background: transparent !important;
+}
+
+.mobile-nav-link {
+    color: #eee !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    margin: 5px 15px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(110, 202, 203, 0.15) !important;
+    color: #fff !important;
+    border-color: rgba(110, 202, 203, 0.3) !important;
+    transform: translateX(5px) !important;
+}
+
+.mobile-nav-link i {
+    color: #6ECACB !important;
+    margin-right: 12px !important;
+    width: 20px !important;
+    text-align: center !important;
+}
+
+.mobile-dropdown-menu {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin: 0 15px 5px 15px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.mobile-dropdown-item {
+    color: #ddd !important;
+    border-left: 3px solid rgba(110, 202, 203, 0.3) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    margin: 2px 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-dropdown-item:hover {
+    background: rgba(110, 202, 203, 0.15) !important;
+    color: #fff !important;
+    border-left-color: #6ECACB !important;
+    padding-left: 35px !important;
+}
+
+.mobile-submenu-items {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-left: 3px solid rgba(110, 202, 203, 0.2) !important;
+}
+
+/* Mobile dropdown icons */
+.mobile-dropdown-icon {
+    color: #6ECACB !important;
+    transition: transform 0.3s ease !important;
+}
+
+.mobile-dropdown.active .mobile-dropdown-icon {
+    transform: rotate(45deg) !important;
+    color: #fff !important;
+}
+
+/* Scrollbar styling for mobile overlay */
+.mobile-nav-overlay::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.mobile-nav-overlay::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.mobile-nav-overlay::-webkit-scrollbar-thumb {
+    background: rgba(110, 202, 203, 0.5) !important;
+    border-radius: 4px !important;
+}
+
+.mobile-nav-overlay::-webkit-scrollbar-thumb:hover {
+    background: rgba(110, 202, 203, 0.8) !important;
+}
+</style>
+      <!-- TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="container">
+            <div class="company-info">
+                <span class="company-name">
+                    <i class="fas fa-industry"></i>
+                    K G ENGINEERING SERVICES
+                </span>
+            </div>
+            <div class="top-right-info">
+                <span class="timing">
+                    <i class="far fa-clock"></i>
+                    Mon-Fri: 8:00 AM - 6:00 PM
+                </span>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER - Hidden on mobile -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo - No text, only logo -->
+            <div class="logo-section">
+                <div class="logo-container">
+                    <div class="logo">
+                        <!-- Large Logo image -->
+                        <img src="kges-logo.webp" alt="K G Engineering Services Logo" 
+     class="mobile-logo-image" id="headerLogo" 
+     style="width: auto; height: 80px; max-height: 80px; object-fit: contain; filter: brightness(1.2) contrast(1.1); background-color: transparent;"> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info - Hidden on mobile -->
+            <div class="contact-section">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p class="contact-label">Call Us Today</p>
+                        <p class="contact-info">9884202336</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p class="contact-label">Email Us</p>
+                        <p class="contact-info">info@kgengineering.com</p>
+                    </div>
+                </div>
+                <div class="contact-item cta-contact">
+                    <button class="quote-btn" onclick="sendQuoteRequest()">
+                        <i class="fas fa-file-alt"></i>
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<nav class="main-navigation" id="mainNav">
+    <div class="container">
+        <!-- Mobile Logo in Header - Larger -->
+        <div class="mobile-logo-container">
+            <a href="index.html" class="mobile-logo-link">
+                 <img src="kges-logo.webp" alt="K G Engineering Services Logo" 
+             class="mobile-logo-image" id="headerLogo" 
+             style="width: 150px; height: 80px; max-height: 80px; object-fit: contain;  filter: brightness(1.2) contrast(1.1); background-color: transparent;">
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" style="color: #eee;">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link"style="color: #eee;">
+                    <i class="fas fa-info-circle"></i>
+                    About Us
+                </a>
+            </li>
+            
+            <!-- Services Dropdown -->
+            <li class="nav-item desktop-dropdown" style="color: #eee;">
+                <a href="#" class="nav-link desktop-dropdown-toggle" style="color: #eee;">
+                    <i class="fas fa-cogs"></i>
+                    Services
+                    <i class="fas fa-chevron-down desktop-dropdown-icon"></i>
+                </a>
+                <div class="desktop-dropdown-menu">
+                    <a href="energysavingsmartmonitor.html" class="desktop-dropdown-item">Energy Saving Smart Monitor</a>
+                    
+                    <!-- Industrial Lubricants with Submenu -->
+                    <div class="desktop-dropdown-submenu">
+                        <a href="#" class="desktop-dropdown-item desktop-submenu-toggle">
+                            <span>Industrial Lubricants</span>
+                            <i class="fas fa-chevron-right desktop-submenu-icon"></i>
+                        </a>
+                        <div class="desktop-submenu-items">
+                            <a href="grease.html" class="desktop-dropdown-item">Greases</a>
+                            <a href="oils.html" class="desktop-dropdown-item">Oils</a>
+                            <a href="pastes.html" class="desktop-dropdown-item">Pastes</a>
+                            <a href="specialist.html" class="desktop-dropdown-item">Specialist</a>
+                        </div>
+                    </div>
+
+                     <!-- Industrial Lubricants with Submenu -->
+                    <div class="desktop-dropdown-submenu">
+                        <a href="#" class="desktop-dropdown-item desktop-submenu-toggle">
+                            <span>Coatings</span>
+                            <i class="fas fa-chevron-right desktop-submenu-icon"></i>
+                        </a>
+                        <div class="desktop-submenu-items">
+                            <a href="coating1.html" class="desktop-dropdown-item">Floor Coatings</a>
+                            <a href="kulroof.html" class="desktop-dropdown-item">Kulroof Coating</a>
+                           
+                        </div>
+                    </div>
+
+
+                    <!-- <a href="motors.html" class="desktop-dropdown-item">Energy Efficient Motors</a> -->
+                    <a href="industrialcleaner.html" class="desktop-dropdown-item">Industrial Cleaners</a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link" style="color: #eee;">
+                    <i class="fas fa-phone"></i>
+                    Contact
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Navigation Toggle -->
+        <div class="mobile-nav-toggle">
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+                <span class="hamburger-line"  style="background-color: white;"></span>
+                <span class="hamburger-line" style="background-color: white;"></span>
+                <span class="hamburger-line" style="background-color: white;"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+        });
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+        });
+    }
+    
+    // Mobile dropdown toggle
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle, .mobile-submenu-toggle');
+    
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (this.classList.contains('mobile-submenu-toggle')) {
+                const submenu = this.closest('.mobile-dropdown-submenu');
+                submenu.classList.toggle('active');
+            } else {
+                const dropdown = this.closest('.mobile-dropdown');
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
+    // Close all dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.mobile-dropdown')) {
+            document.querySelectorAll('.mobile-dropdown, .mobile-dropdown-submenu').forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+    });
+});
+</script>
+
+<!-- MOBILE NAVIGATION OVERLAY -->
+<div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-header">
+        <div class="mobile-overlay-logo">
+            <img src="kges-logo.webp" alt="K G Engineering Services Logo" 
+             class="mobile-logo-image" id="headerLogo" 
+             style="width: 150px; height: 80px; max-height: 80px; object-fit: contain;  filter: brightness(1.2) contrast(1.1); background-color: transparent;">
+        </div>
+        <button class="close-btn" id="closeBtn" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About Us</a></li>
+            
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-nav-link mobile-dropdown-toggle">
+                    <span><i class="fas fa-cogs"></i> Product</span>
+                    <i class="fas fa-plus mobile-dropdown-icon"></i>
+                </a>
+                <div class="mobile-dropdown-menu">
+                    <a href="energysavingsmartmonitor.html" class="mobile-dropdown-item">Energy Saving Smart Monitor</a>
+                    
+                    <div class="mobile-dropdown-submenu">
+                        <a href="#" class="mobile-dropdown-item mobile-submenu-toggle">
+                            <span>Industrial Lubricants</span>
+                            <i class="fas fa-plus mobile-dropdown-icon"></i>
+                        </a>
+                        <div class="mobile-submenu-items">
+                            <a href="grease.html" class="mobile-dropdown-item">Greases</a>
+                            <a href="oils.html" class="mobile-dropdown-item">Oils</a>
+                            <a href="pastes.html" class="mobile-dropdown-item">Pastes</a>
+                            <a href="specialist.html" class="mobile-dropdown-item">Specialist</a>
+                        </div>
+                    </div>
+
+                     <div class="mobile-dropdown-submenu">
+                        <a href="#" class="mobile-dropdown-item mobile-submenu-toggle">
+                            <span>Coatings</span>
+                            <i class="fas fa-plus mobile-dropdown-icon"></i>
+                        </a>
+                        <div class="mobile-submenu-items">
+                            <a href="coating1.html" class="mobile-dropdown-item">Floor Coatings</a>
+                            <a href="kulroof.html" class="mobile-dropdown-item">Kulroof Coating</a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- <a href="motors.html" class="mobile-dropdown-item">Energy Efficient Motors</a> -->
+                    <a href="industrialcleaner.html" class="mobile-dropdown-item">Industrial Cleaners</a>
+                </div>
+            </li>
+            
+            
+
+            <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+    </nav>
+</div>
+<style>
+/* Common Styles */
+.nav-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+    display: none;
+}
+
+/* Mobile Navigation Overlay - Initially Hidden */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-nav-overlay.active {
+    left: 0;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.mobile-overlay-logo-image {
+    height: 40px;
+    width: auto;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.close-btn:hover {
+    color: #007bff;
+}
+
+.mobile-nav {
+    padding: 20px 0;
+}
+
+.mobile-nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    background: #f8f9fa;
+    color: #007bff;
+}
+
+.mobile-nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-toggle {
+    justify-content: space-between;
+}
+
+.mobile-dropdown-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-icon {
+    transform: rotate(45deg);
+}
+
+.mobile-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f9f9;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    max-height: 1000px;
+}
+
+.mobile-dropdown-item {
+    display: block;
+    padding: 12px 30px;
+    color: #333;
+    text-decoration: none;
+    border-left: 3px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.mobile-dropdown-item:hover {
+    background: #f0f0f0;
+    color: #007bff;
+    border-left-color: #007bff;
+    padding-left: 35px;
+}
+
+.mobile-dropdown-submenu.active .mobile-submenu-items {
+    max-height: 500px;
+}
+
+.mobile-submenu-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f0f0f0;
+}
+
+/* Desktop Styles - Only apply on large screens */
+@media (min-width: 992px) {
+    .nav-menu {
+        display: flex; /* Show desktop navigation */
+    }
+    
+    .mobile-nav-toggle {
+        display: none; /* Hide hamburger on desktop */
+    }
+    
+    .mobile-nav-overlay {
+        display: none; /* Hide mobile overlay on desktop */
+    }
+    
+    /* Desktop Dropdown Styles */
+    .desktop-dropdown {
+        position: relative;
+    }
+    
+    .desktop-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .desktop-dropdown-icon {
+        font-size: 12px;
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+    }
+    
+    .desktop-dropdown:hover .desktop-dropdown-icon {
+        transform: rotate(180deg);
+    }
+    
+    .desktop-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 250px;
+        background: white;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        border-radius: 5px;
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .desktop-dropdown:hover .desktop-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .desktop-dropdown-item {
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        position: relative;
+        border-left: 3px solid transparent;
+    }
+    
+    .desktop-dropdown-item:hover {
+        background: #f8f9fa;
+        color: #007bff;
+        border-left-color: #007bff;
+        padding-left: 25px;
+    }
+    
+    /* Desktop Submenu */
+    .desktop-dropdown-submenu {
+        position: relative;
+    }
+    
+    .desktop-submenu-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .desktop-submenu-icon {
+        font-size: 10px;
+        transition: transform 0.3s ease;
+    }
+    
+    .desktop-submenu-items {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        min-width: 220px;
+        background: white;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        border-radius: 0 5px 5px 5px;
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .desktop-dropdown-submenu:hover .desktop-submenu-items {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    
+    .desktop-dropdown-submenu:hover .desktop-submenu-icon {
+        transform: rotate(90deg);
+    }
+    
+    .desktop-dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: transparent;
+    }
+    
+    .desktop-dropdown-submenu::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        background: transparent;
+    }
+}
+
+/* Mobile Styles - Only apply on small screens */
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+    
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .hamburger-line {
+        width: 25px;
+        height: 2px;
+        background: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-btn:hover .hamburger-line {
+        background: #007bff;
+    }
+    
+    /* Hide mobile logo on desktop, show on mobile */
+    .mobile-logo-container {
+        display: block;
+    }
+}
+</style>
+<style>
+    /* Mobile Logo in Header - Larger */
+.mobile-logo-image {
+    height: 50px; /* Increased from 40px */
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* For even larger screens, make it bigger */
+@media (max-width: 768px) {
+    .mobile-logo-image {
+        height: 55px; /* Even larger on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .mobile-logo-image {
+        height: 60px; /* Maximum size for very small screens */
+    }
+}
+
+/* Logo inside Hamburger Menu */
+.mobile-overlay-logo-image {
+    height: 60px; /* Larger than header logo */
+    width: auto;
+    max-width: 200px;
+}
+
+/* Adjust header padding to accommodate larger logo */
+.mobile-nav-header {
+    padding: 15px 20px; /* Adjusted padding */
+    min-height: 80px; /* Ensure enough height */
+    align-items: center;
+}
+
+/* Desktop logo - keep original size or adjust as needed */
+@media (min-width: 992px) {
+    .mobile-logo-image {
+        height: 45px; /* Standard size for desktop */
+    }
+}
+</style>
+
+
+
+    <!-- Hero Section -->
+    <section class="kulroof-hero" id="kulroof-hero">
+        <!-- Background Image Layer -->
+        <div class="hero-background">
+            <div class="bg-overlay"></div>
+            <div class="bg-image"></div>
+        </div>
+        
+        <!-- Content Container -->
+        <div class="hero-container">
+            <!-- Text Content - Shows First -->
+            <div class="hero-content">
+                <div class="content-wrapper">
+                  
+                    
+                    <!-- Main Headline -->
+                    <h1 class="hero-headline">
+                        <span class="headline-line">Advanced Industrial</span>
+                        <span class="headline-line highlight">Heat & Waterproofing</span>
+                        <span class="headline-line">Solutions</span>
+                    </h1>
+                    
+                    <!-- Supporting Text -->
+                    <div class="hero-subtext">
+                        <p class="support-text">Protect your assets with engineering-grade roofing and flooring systems designed for maximum durability and thermal efficiency.</p>
+                        
+                        <!-- Feature List -->
+                        <ul class="feature-list">
+                            <li class="feature-item" >
+                                <span class="feature-icon" >✓</span>
+                                <span class="feature-text" >Reduce heat transfer by up to 85%</span>
+                            </li>
+                            <li class="feature-item" >
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Complete waterproof protection</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Extend roof/floor lifespan by 3X</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span class="feature-text">Industrial-grade materials</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <div class="hero-cta">
+                        <a href="javascript:void(0)" class="cta-button" id="technical-consultation-btn" style="background-color: white;"> 
+                            <span class="cta-icon"style="background-color: black;">🔧</span>
+                            <span class="cta-text" >Get Technical Consultation</span>
+                            <span class="cta-arrow" style="color: black;">→</span>
+                        </a>
+                        
+                        <!-- Trust Indicators -->
+                        <div class="trust-indicators">
+                            <div class="indicator">
+                                <span class="indicator-number">500+</span>
+                                <span class="indicator-label">Projects Completed</span>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="indicator">
+                                <span class="indicator-number">15</span>
+                                <span class="indicator-label">Years Warranty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Image - Shows After Text -->
+            <div class="hero-image">
+                <!-- Image Container -->
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Industrial Roof Coating Application" 
+                         class="main-image"
+                         loading="lazy">
+                    
+                   
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="indicator-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+
+
+     <!-- Why KULROOF Section -->
+    <section class="why-kulroof-section" id="why-kulroof">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">Engineering Excellence</div>
+                <br>
+                <h2 class="section-title">Why Choose ?</h2>
+                <p class="section-subtitle">Expertise built on 15+ years of industrial roofing and waterproofing experience across India's toughest environments</p>
+            </div>
+
+            <!-- Value Blocks Grid -->
+            <div class="value-grid">
+                <!-- Block 1: Experience -->
+                <article class="value-block" id="value-experience">
+                    <div class="value-icon-container">
+                        <div class="value-icon">🏭</div>
+                        <div class="icon-badge">15+ Years</div>
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Proven Industrial Experience</h3>
+                        <p class="value-description">
+                            Over 500+ industrial projects completed across manufacturing plants, warehouses, and commercial facilities. Our team includes certified industrial roofing specialists with extensive field experience.
+                        </p>
+                        <ul class="value-points">
+                            <li class="value-point">500+ Industrial Projects</li>
+                            <li class="value-point">Certified Specialists</li>
+                            <li class="value-point">Pan-India Service</li>
+                        </ul>
+                    </div>
+                    <div class="value-indicator">
+                        <div class="indicator-bar"></div>
+                        <div class="indicator-text">Established 2008</div>
+                    </div>
+                </article>
+
+                <!-- Block 2: Durability -->
+                <article class="value-block" id="value-durability">
+                    <div class="value-icon-container">
+                        <div class="value-icon">🔨</div>
+                        <div class="icon-badge">25 Years</div>
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Engineered Durability</h3>
+                        <p class="value-description">
+                            Industrial-grade materials and application techniques designed to withstand extreme weather conditions, heavy loads, and chemical exposure. Tested for maximum lifespan and performance.
+                        </p>
+                        <ul class="value-points">
+                            <li class="value-point">Extreme Weather Rated</li>
+                            <li class="value-point">Chemical Resistance</li>
+                            <li class="value-point">Load-Bearing Design</li>
+                        </ul>
+                    </div>
+                    <div class="value-indicator">
+                        <div class="indicator-bar"></div>
+                        <div class="indicator-text">Warranty Backed</div>
+                    </div>
+                </article>
+
+                <!-- Block 3: Cost Efficiency -->
+                <article class="value-block" id="value-efficiency">
+                    <div class="value-icon-container">
+                        <div class="value-icon">📊</div>
+                        <div class="icon-badge">40% Savings</div>
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Cost-Efficient Solutions</h3>
+                        <p class="value-description">
+                            Reduce operational costs with energy-efficient roofing systems that lower cooling expenses. Our solutions offer long-term savings through reduced maintenance and extended lifecycle.
+                        </p>
+                        <ul class="value-points">
+                            <li class="value-point">Energy Cost Reduction</li>
+                            <li class="value-point">Low Maintenance</li>
+                            <li class="value-point">ROI-Focused Design</li>
+                        </ul>
+                    </div>
+                    <div class="value-indicator">
+                        <div class="indicator-bar"></div>
+                        <div class="indicator-text">Proven ROI</div>
+                    </div>
+                </article>
+
+                <!-- Block 4: Materials -->
+                <article class="value-block" id="value-materials">
+                    <div class="value-icon-container">
+                        <div class="value-icon">⚙️</div>
+                        <div class="icon-badge">Grade A</div>
+                    </div>
+                    <div class="value-content">
+                        <h3 class="value-title">Industrial-Grade Materials</h3>
+                        <p class="value-description">
+                            We use only ISO-certified materials from trusted manufacturers. Each material batch undergoes quality testing to ensure compliance with industrial standards and specifications.
+                        </p>
+                        <ul class="value-points">
+                            <li class="value-point">ISO-Certified Materials</li>
+                            <li class="value-point">Quality Tested</li>
+                            <li class="value-point">Specification Compliant</li>
+                        </ul>
+                    </div>
+                    <div class="value-indicator">
+                        <div class="indicator-bar"></div>
+                        <div class="indicator-text">ISO Certified</div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Engineering Stats -->
+            <div class="engineering-stats">
+                <div class="stat-item">
+                    <div class="stat-number">98.7%</div>
+                    <div class="stat-label">Project Success Rate</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Technical Support</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Quality Assurance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+     <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">Industrial Solutions</div>
+                <br>
+                <h2 style="color: aqua;font-size: 25px;" >KULROOF Professional Services</h2>
+                <p class="section-subtitle">Comprehensive industrial protection systems engineered for durability, efficiency, and long-term performance</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <!-- Service 1: Heat Reflective Roof Coating -->
+                <article class="service-card" data-service="heat-reflective-coating">
+                    <div class="card-header">
+                        <div class="service-icon">
+                            <span class="icon-symbol">🌡️</span>
+                        </div>
+                        <div class="service-badge">Energy Efficient</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="service-name">Heat Reflective Roof Coating</h3>
+                        <p class="service-benefit">Reduce indoor temperature by 8-12°C with advanced ceramic reflective technology</p>
+                        
+                        <ul class="service-features">
+                            <li class="feature">85% Solar Reflectance</li>
+                            <li class="feature">UV Resistant</li>
+                            <li class="feature">15+ Year Durability</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="quote-btn" data-service-name="Heat Reflective Roof Coating">
+                            <span class="btn-icon">📋</span>
+                            <span class="btn-text">Get a Quote</span>
+                        </button>
+                        <div class="service-tag">ISO 9001 Certified</div>
+                    </div>
+                </article>
+
+                <!-- Service 2: Waterproof Roof Coating -->
+                <article class="service-card" data-service="waterproof-coating">
+                    <div class="card-header">
+                        <div class="service-icon">
+                            <span class="icon-symbol">💧</span>
+                        </div>
+                        <div class="service-badge">Leak Proof</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="service-name">Waterproof Roof Coating</h3>
+                        <p class="service-benefit">Complete waterproof protection with seamless membrane application</p>
+                        
+                        <ul class="service-features">
+                            <li class="feature">100% Waterproof</li>
+                            <li class="feature">Chemical Resistant</li>
+                            <li class="feature">Elasticity Maintained</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="quote-btn" data-service-name="Waterproof Roof Coating">
+                            <span class="btn-icon">📋</span>
+                            <span class="btn-text">Get a Quote</span>
+                        </button>
+                        <div class="service-tag">BIS Certified</div>
+                    </div>
+                </article>
+
+                <!-- Service 3: Industrial Floor Coating -->
+                <article class="service-card" data-service="floor-coating">
+                    <div class="card-header">
+                        <div class="service-icon">
+                            <span class="icon-symbol">🏭</span>
+                        </div>
+                        <div class="service-badge">Heavy Duty</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="service-name">Industrial Floor Coating</h3>
+                        <p class="service-benefit">High-performance epoxy and polyurethane coatings for industrial floors</p>
+                        
+                        <ul class="service-features">
+                            <li class="feature">Chemical & Abrasion Resistant</li>
+                            <li class="feature">Anti-Slip Surface</li>
+                            <li class="feature">Load Bearing Capacity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="quote-btn" data-service-name="Industrial Floor Coating">
+                            <span class="btn-icon">📋</span>
+                            <span class="btn-text">Get a Quote</span>
+                        </button>
+                        <div class="service-tag">Industrial Grade</div>
+                    </div>
+                </article>
+
+                <!-- Service 4: Terrace Protection -->
+                <article class="service-card" data-service="terrace-protection">
+                    <div class="card-header">
+                        <div class="service-icon">
+                            <span class="icon-symbol">🏗️</span>
+                        </div>
+                        <div class="service-badge">All-Weather</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="service-name">Terrace Protection</h3>
+                        <p class="service-benefit">Complete terrace waterproofing and thermal insulation systems</p>
+                        
+                        <ul class="service-features">
+                            <li class="feature">Thermal Insulation</li>
+                            <li class="feature">Water Drainage System</li>
+                            <li class="feature">Long-term Protection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="quote-btn" data-service-name="Terrace Protection">
+                            <span class="btn-icon">📋</span>
+                            <span class="btn-text">Get a Quote</span>
+                        </button>
+                        <div class="service-tag">Weather Resistant</div>
+                    </div>
+                </article>
+
+                <!-- Service 5: Crack & Leakage Treatment -->
+                <article class="service-card" data-service="crack-treatment">
+                    <div class="card-header">
+                        <div class="service-icon">
+                            <span class="icon-symbol">🔧</span>
+                        </div>
+                        <div class="service-badge">Structural Repair</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="service-name">Crack & Leakage Treatment</h3>
+                        <p class="service-benefit">Professional repair and sealing of structural cracks and leakages</p>
+                        
+                        <ul class="service-features">
+                            <li class="feature">Structural Reinforcement</li>
+                            <li class="feature">Leak Detection</li>
+                            <li class="feature">Permanent Repair</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="quote-btn" data-service-name="Crack & Leakage Treatment">
+                            <span class="btn-icon">📋</span>
+                            <span class="btn-text">Get a Quote</span>
+                        </button>
+                        <div class="service-tag">Structural Grade</div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CTA Footer -->
+            <div class="services-cta">
+                <div class="cta-content">
+                    <h3 class="cta-title">Need a Custom Solution?</h3>
+                    <p class="cta-text">Our engineering team can design a customized protection system for your specific industrial requirements</p>
+                </div>
+                <button class="cta-button" id="custom-solution-btn" style="background-color:white;border-radius: 20px;border-color: #007bff;">
+                    <span class="cta-icon">📞</span>
+                    <span class="cta-text">Consult Our Engineers</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+    <!-- Before/After Section -->
+    <section class="before-after-section" id="results">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">Proven Results</div> <br>
+                <h2 style="color: ;">KULROOF Before & After Transformations</h2>
+                <p class="section-subtitle">See the tangible difference our industrial protection systems make</p>
+            </div>
+
+            <!-- Comparison Container -->
+            <div class="comparison-container">
+                <!-- Comparison 1 -->
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <h3 class="comparison-title">Industrial Roof Leakage Treatment</h3>
+                        <div class="comparison-location">📍 Manufacturing Plant, Chennai</div>
+                    </div>
+                    
+                    <div class="comparison-visual">
+                        <!-- Before Side -->
+                        <div class="comparison-side before-side">
+                            <div class="side-label">
+                                <div class="label-icon">⚠️</div>
+                                <div class="label-text">Before</div>
+                            </div>
+                            <div class="side-image">
+                                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Damaged industrial roof with leaks"
+                                     class="comparison-image"
+                                     loading="lazy">
+                                <div class="image-overlay">
+                                    <div class="problem-list">
+                                        <div class="problem-item">Active Leakage</div>
+                                        <div class="problem-item">Poor Insulation</div>
+                                        <div class="problem-item">15+ Years Old</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Comparison Indicator -->
+                        <div class="comparison-indicator">
+                            <div class="indicator-arrow">
+                                <div class="arrow-icon">→</div>
+                                <div class="arrow-text">Transformed</div>
+                            </div>
+                            <div class="indicator-line"></div>
+                        </div>
+                        
+                        <!-- After Side -->
+                        <div class="comparison-side after-side">
+                            <div class="side-label">
+                                <div class="label-icon">✅</div>
+                                <div class="label-text">After</div>
+                            </div>
+                            <div class="side-image">
+                                <img src="https://images.unsplash.com/photo-1590330297626-d7aff25a0431?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Repaired industrial roof with waterproof coating"
+                                     class="comparison-image"
+                                     loading="lazy">
+                                <div class="image-overlay">
+                                    <div class="solution-list">
+                                        <div class="problem-item">Waterproof Coating</div>
+                                        <div class="problem-item">15 Year Warranty</div>
+                                        <div class="problem-item">Leak Proof</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hover Reveal Button -->
+                    <div class="reveal-control">
+                        <button class="reveal-btn" data-comparison="1">
+                            <span class="btn-icon">👁️</span>
+                            <span class="btn-text">Quick View Comparison</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Results Metrics -->
+                    <div class="results-metrics">
+                        <div class="metric">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Leakage Stopped</div>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric">
+                            <div class="metric-value">85%</div>
+                            <div class="metric-label">Heat Reduction</div>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric">
+                            <div class="metric-value">3X</div>
+                            <div class="metric-label">Lifespan Extended</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison 2 -->
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <h3 class="comparison-title">Commercial Terrace Waterproofing</h3>
+                        <div class="comparison-location">📍 Office Building, Bangalore</div>
+                    </div>
+                    
+                    <div class="comparison-visual">
+                        <!-- Before Side -->
+                        <div class="comparison-side before-side">
+                            <div class="side-label">
+                                <div class="label-icon">⚠️</div>
+                                <div class="label-text">Before</div>
+                            </div>
+                            <div class="side-image">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Damaged terrace with cracks"
+                                     class="comparison-image"
+                                     loading="lazy">
+                                <div class="image-overlay">
+                                    <div class="problem-list">
+                                        <div class="problem-item">Annual Repairs</div>
+                                        <div class="problem-item">High Maintenance</div>
+                                        <div class="problem-item">Unusable Space</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Comparison Indicator -->
+                        <div class="comparison-indicator">
+                            <div class="indicator-arrow">
+                                <div class="arrow-icon">→</div>
+                                <div class="arrow-text">Transformed</div>
+                            </div>
+                            <div class="indicator-line"></div>
+                        </div>
+                        
+                        <!-- After Side -->
+                        <div class="comparison-side after-side">
+                            <div class="side-label">
+                                <div class="label-icon">✅</div>
+                                <div class="label-text">After</div>
+                            </div>
+                            <div class="side-image">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Renovated terrace with waterproof coating"
+                                     class="comparison-image"
+                                     loading="lazy">
+                                <div class="image-overlay" >
+                                    <div class="solution-list">
+                                        <div class="problem-item">Waterproof Finish</div>
+                                        <div class="problem-item">Heat Resistant</div>
+                                        <div class="problem-item">Space Utilized</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hover Reveal Button -->
+                    <div class="reveal-control">
+                        <button class="reveal-btn" data-comparison="2">
+                            <span class="btn-icon">👁️</span>
+                            <span class="btn-text">Quick View Comparison</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Results Metrics -->
+                    <div class="results-metrics">
+                        <div class="metric">
+                            <div class="metric-value">0</div>
+                            <div class="metric-label">Maintenance Issues</div>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Energy Savings</div>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Space Utilization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="trust-indicators">
+                <div class="indicator-card">
+                    <div class="indicator-icon">📷</div>
+                    <div class="indicator-content">
+                        <div class="indicator-number">250+</div>
+                        <div class="indicator-text">Documented Projects</div>
+                    </div>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-icon">✅</div>
+                    <div class="indicator-content">
+                        <div class="indicator-number">98.7%</div>
+                        <div class="indicator-text">Client Satisfaction</div>
+                    </div>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-icon">🏭</div>
+                    <div class="indicator-content">
+                        <div class="indicator-number">500+</div>
+                        <div class="indicator-text">Industrial Sites</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="results-cta">
+                <div class="cta-content">
+                    <h3 class="cta-title">Transform Your Industrial Space</h3>
+                    <p class="cta-text">Get a professional site assessment and see your own before/after results</p>
+                </div>
+                <button class="cta-button" id="site-assessment-btn" style="background-color:white;border-radius: 20px;border-color: #007bff;">
+                    <span class="cta-icon">📋</span>
+                    <span class="cta-text" >Book Site Assessment</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <a href="#" class="footer-logo">K.G<span> Engineering</span></a>
+            <p class="brand-text">Pioneering industrial excellence with sustainable energy solutions and high-efficiency motor technology.</p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+        </div>
+
+        <nav class="footer-col" aria-label="Quick Links">
+            <h4 class="footer-heading">Company</h4>
+            <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our History</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Services">
+            <h4 class="footer-heading">Solutions</h4>
+            <ul class="footer-links">
+                <li><a href="#">IE4 Efficiency</a></li>
+                <li><a href="#">Custom Design</a></li>
+                <li><a href="#">Maintenance</a></li>
+                <li><a href="#">Case Studies</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer-col">
+            <h4 class="footer-heading">Contact</h4>
+            <address class="footer-contact">
+                <p>No. 42 Industrial Park, Chennai, TN</p>
+                <p><a href="mailto:info@corplink.com">info@kgengineering@gmail.com</a></p>
+                <p><a href="tel:+919884202336">+91 9884202336</a></p>
+            </address>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="bottom-container">
+            <p class="copyright">© <span id="year"></span> CorpLink Systems. All Rights Reserved. Developed by amplepro technology</p>
+            <!-- <p class="developer">Built by <strong>Avenue Dev</strong></p> -->
+        </div>
+    </div>
+</footer>
+
+
+
+        <script>// WhatsApp Quote Button Script
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all quote buttons
+    const quoteButtons = document.querySelectorAll('.quote-btn');
+    
+    // Add click event to each button
+    quoteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior
+            
+            // Your WhatsApp number
+            const whatsappNumber = '9789029012';
+            
+            // Get product details from data attributes
+            const productName = this.getAttribute('data-product') || 'your product/service';
+            const productSpec = this.getAttribute('data-spec') || 'more details';
+            
+            // Create the message
+            const message = `Hi! I am interested in getting a quote for:\n\n` +
+                           `*Product/Service:* ${productName}\n` +
+                           `*Specifications:* ${productSpec}\n\n` +
+                           `Please send me the pricing and details. Thank you!`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Optional: Add click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+    });
+});
+
+// Alternative: Simple function for onclick attribute
+function sendQuoteRequest() {
+    const whatsappNumber = '9789029012';
+    const message = `Hi! I am interested in getting a quote for your products/services. Please send me the pricing and details. Thank you!`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+
+    <script src="kulroof.js"></script>
+    <script src="dummy.js"></script>
+    <script src="loading.js"></script>
+</body>
+</html>

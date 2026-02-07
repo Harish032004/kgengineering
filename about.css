@@ -1,0 +1,2014 @@
+/* ============================================
+   K.G ENGINEERING - PREMIUM ABOUT PAGE
+   Enhanced with Animations & Responsiveness
+   ============================================ */
+
+:root {
+    /* Primary Colors */
+    --teal-primary: #6ECACB;
+    --teal-dark: #2FA4A9;
+    --teal-light: #AEE6E6;
+    --teal-muted: rgba(110, 202, 203, 0.1);
+    
+    /* Neutral Colors */
+    --black: #000000;
+    --white: #FFFFFF;
+    --grey-light: #F8FAFC;
+    --grey-medium: #E2E8F0;
+    --grey-dark: #64748B;
+    --grey-border: #CBD5E1;
+    
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-teal: 0 10px 30px rgba(110, 202, 203, 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-slow: all 0.6s ease;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Section Spacing */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Utility Classes */
+.section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.section-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal-primary), var(--teal-dark));
+    margin-bottom: 2.5rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.section-underline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--white), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.section-description {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--grey-dark);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    line-height: 1.7;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.3s forwards;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 1. INTRODUCTION SECTION - Enhanced */
+.intro-section {
+    padding: clamp(4rem, 8vw, 8rem) 0;
+    background: linear-gradient(135deg, var(--white) 0%, var(--grey-light) 100%);
+    position: relative;
+}
+
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: var(--teal-muted);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-headline {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.8s ease 0.1s forwards;
+}
+
+.headline-main {
+    display: block;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--black) 0%, var(--grey-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.headline-sub {
+    display: block;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--teal-primary);
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+.headline-sub::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--teal-primary);
+    animation: expandWidth 1.2s ease 0.5s forwards;
+}
+
+@keyframes expandWidth {
+    to {
+        width: 100%;
+    }
+}
+
+.intro-underline {
+    width: 180px;
+    height: 4px;
+    background: var(--teal-primary);
+    margin: 0 auto 3rem;
+    position: relative;
+    transform: scaleX(0.3);
+    animation: underlineExpand 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+}
+
+@keyframes underlineExpand {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease 0.4s forwards;
+}
+
+.intro-text p {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--grey-dark);
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* 2. COMPANY OVERVIEW SECTION - Enhanced */
+.overview-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background-color: var(--white);
+    position: relative;
+}
+
+.overview-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--grey-border) 20%, 
+        var(--grey-border) 80%, 
+        transparent 100%);
+    transform: translateY(-50%);
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.overview-content {
+    padding-right: 2rem;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.8s ease 0.2s forwards;
+}
+
+.overview-subtitle {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.overview-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 30px;
+    background: var(--teal-primary);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.overview-subtitle:hover::before {
+    height: 40px;
+    background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+}
+
+.overview-block {
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: calc(var(--block-index, 0) * 0.1s + 0.3s);
+}
+
+.overview-block p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--grey-dark);
+    line-height: 1.8;
+    transition: var(--transition-smooth);
+}
+
+.overview-block:hover p {
+    color: var(--black);
+    transform: translateX(5px);
+}
+
+.overview-visual {
+    position: relative;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInRight 0.8s ease 0.2s forwards;
+}
+
+.industrial-image-container {
+    position: sticky;
+    top: 2rem;
+}
+
+.image-main {
+    width: 100%;
+    height: clamp(400px, 50vw, 600px);
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow-xl);
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.image-main:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-teal);
+}
+
+.image-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 6s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.image-main:hover img {
+    transform: scale(1.08);
+}
+
+.image-caption {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border: 2px solid var(--grey-medium);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.image-caption:hover {
+    border-color: var(--teal-primary);
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+}
+
+.caption-icon {
+    background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+    color: var(--white);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.25rem;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    transition: var(--transition-bounce);
+}
+
+.image-caption:hover .caption-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.image-caption span {
+    font-size: 0.9375rem;
+    color: var(--grey-dark);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* 3. CORE STRENGTHS SECTION - Enhanced */
+.strengths-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(135deg, var(--grey-light) 0%, var(--white) 100%);
+}
+
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.strength-card {
+    padding: 2.5rem 2rem;
+    border: 2px solid var(--grey-medium);
+    background-color: var(--white);
+    position: relative;
+    transition: var(--transition-smooth);
+    height: 100%;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+.strength-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal-primary), var(--teal-dark));
+    transform: scaleX(0);
+    transition: var(--transition-smooth);
+    border-radius: 12px 12px 0 0;
+}
+
+.strength-card:hover {
+    transform: translateY(-12px);
+    border-color: transparent;
+    box-shadow: var(--shadow-xl);
+}
+
+.strength-card:hover::before {
+    transform: scaleX(1);
+}
+
+.strength-icon {
+    font-size: 3rem;
+    color: var(--teal-primary);
+    margin-bottom: 1.5rem;
+    transition: var(--transition-bounce);
+    display: inline-block;
+}
+
+.strength-card:hover .strength-icon {
+    transform: translateY(-10px) rotate(5deg);
+    color: var(--teal-dark);
+    animation: float 3s ease-in-out infinite;
+}
+
+.strength-title {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    transition: var(--transition-smooth);
+}
+
+.strength-card:hover .strength-title {
+    color: var(--teal-dark);
+}
+
+.strength-card p {
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    color: var(--grey-dark);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.strength-card:hover p {
+    color: #555;
+}
+
+.strength-border {
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 3px;
+    background: var(--grey-medium);
+    transition: var(--transition-smooth);
+    transform-origin: center;
+}
+
+.strength-card:hover .strength-border {
+    transform: scaleX(0);
+}
+
+/* 4. ENGINEERING CAPABILITIES - Enhanced */
+.capabilities-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background-color: var(--white);
+    position: relative;
+}
+
+.capabilities-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--grey-border) 50%, 
+        transparent 100%);
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.capability-item {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-left: 4px solid var(--teal-primary);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 8px 8px 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.6s ease forwards;
+    animation-delay: calc(var(--item-index, 0) * 0.1s);
+}
+
+.capability-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--teal-muted), 
+        transparent);
+    transition: var(--transition-slow);
+}
+
+.capability-item:hover {
+    transform: translateX(15px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--teal-dark);
+}
+
+.capability-item:hover::before {
+    left: 100%;
+}
+
+.capability-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.capability-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--teal-muted);
+    margin-right: 1.5rem;
+    line-height: 1;
+    transition: var(--transition-smooth);
+}
+
+.capability-item:hover .capability-number {
+    color: var(--teal-light);
+    transform: scale(1.1);
+}
+
+.capability-title {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.2;
+    transition: var(--transition-smooth);
+}
+
+.capability-item:hover .capability-title {
+    color: var(--teal-dark);
+}
+
+.capability-list {
+    list-style: none;
+    position: relative;
+    z-index: 1;
+}
+
+.capability-list li {
+    padding: 0.75rem 0;
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    color: var(--grey-dark);
+    position: relative;
+    padding-left: 2rem;
+    transition: var(--transition-smooth);
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: slideInLeft 0.4s ease forwards;
+    animation-delay: calc(var(--li-index, 0) * 0.05s + 0.3s);
+}
+
+.capability-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--teal-primary);
+    font-weight: bold;
+    font-size: 1.25rem;
+    transition: var(--transition-smooth);
+}
+
+.capability-item:hover .capability-list li::before {
+    color: var(--teal-dark);
+    transform: translateX(5px);
+}
+
+.capability-list li:hover {
+    color: var(--black);
+    padding-left: 2.5rem;
+}
+
+/* 5. TRUST & CREDIBILITY - Enhanced */
+.trust-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(135deg, var(--grey-light) 0%, var(--white) 100%);
+}
+
+.trust-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--white);
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: calc(var(--metric-index, 0) * 0.1s);
+}
+
+.metric-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: linear-gradient(0deg, var(--teal-primary), transparent);
+    transition: var(--transition-smooth);
+    z-index: 0;
+}
+
+.metric-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+.metric-item:hover::before {
+    height: 100%;
+}
+
+.metric-value {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--teal-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition-smooth);
+}
+
+.metric-item:hover .metric-value {
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.metric-label {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition-smooth);
+}
+
+.metric-item:hover .metric-label {
+    color: var(--white);
+}
+
+.metric-description {
+    font-size: 0.875rem;
+    color: var(--grey-dark);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition-smooth);
+}
+
+.metric-item:hover .metric-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.industries-container {
+    text-align: center;
+}
+
+.industries-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.industry-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background-color: var(--white);
+    border: 2px solid var(--grey-medium);
+    border-radius: 12px;
+    transition: var(--transition-bounce);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: calc(var(--industry-index, 0) * 0.05s);
+}
+
+.industry-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: var(--teal-primary);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--white), var(--teal-muted));
+}
+
+.industry-item i {
+    font-size: 2rem;
+    color: var(--teal-primary);
+    margin-bottom: 1rem;
+    transition: var(--transition-bounce);
+}
+
+.industry-item:hover i {
+    transform: rotate(15deg) scale(1.2);
+    color: var(--teal-dark);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.industry-item span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--black);
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.industry-item:hover span {
+    color: var(--teal-dark);
+    font-weight: 700;
+}
+
+/* 6. CLOSING CTA - Enhanced */
+.cta-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: linear-gradient(135deg, var(--teal-light) 0%, var(--white) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: var(--teal-primary);
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(80px);
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.cta-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--black) 0%, var(--teal-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cta-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--grey-dark);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+}
+
+.kg-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 3rem;
+    background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+    color: var(--white);
+    text-decoration: none;
+    font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: var(--shadow-md);
+    z-index: 1;
+}
+
+.kg-cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: var(--transition-slow);
+    z-index: 1;
+}
+
+.kg-cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.kg-cta-button:hover::before {
+    left: 100%;
+}
+
+.kg-cta-button span {
+    margin-right: 1rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    z-index: 2;
+}
+
+.kg-cta-button i {
+    transition: var(--transition-smooth);
+    position: relative;
+    z-index: 2;
+}
+
+.kg-cta-button:hover span {
+    transform: translateX(-8px);
+}
+
+.kg-cta-button:hover i {
+    transform: translateX(8px);
+}
+
+.kg-cta-button::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.kg-cta-button:hover::after {
+    opacity: 1;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ====================
+   RESPONSIVE DESIGN
+   ==================== */
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 1000px;
+        padding: 0 1.5rem;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .overview-content {
+        padding-right: 0;
+    }
+    
+    .strengths-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-main {
+        height: clamp(350px, 40vw, 500px);
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+    
+    .strengths-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .industries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .capability-item {
+        padding: 2rem 1.5rem;
+    }
+    
+    .kg-cta-button {
+        padding: 1.125rem 2.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .intro-headline {
+        margin-bottom: 1.5rem;
+    }
+    
+    .headline-main {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+    
+    .headline-sub {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .intro-underline {
+        width: 120px;
+        margin-bottom: 2rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+    }
+    
+    .section-underline {
+        width: 60px;
+        margin-bottom: 2rem;
+    }
+    
+    .strength-card,
+    .capability-item,
+    .metric-item {
+        padding: 2rem 1.25rem;
+    }
+    
+    .trust-metrics {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .industry-item {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .cta-title {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+    }
+    
+    .kg-cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 0.875rem;
+    }
+    
+    .industries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .industry-item {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .strength-card:hover,
+    .capability-item:hover,
+    .metric-item:hover,
+    .industry-item:hover,
+    .kg-cta-button:hover {
+        transform: none;
+    }
+    
+    .strength-card:active,
+    .capability-item:active,
+    .metric-item:active,
+    .industry-item:active {
+        transform: scale(0.98);
+    }
+    
+    .image-main:hover img {
+        transform: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .intro-section::before,
+    .cta-section::before,
+    .strength-card::before,
+    .capability-item::before,
+    .metric-item::before {
+        display: none;
+    }
+    
+    .kg-cta-button {
+        border: 2px solid var(--black);
+        background: none;
+        color: var(--black);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* Reveal Mask Animation for Section Titles */
+@keyframes revealText {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+.section-title {
+    animation: fadeUp 0.8s ease forwards, revealText 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Glassmorphism Shine Effect for Cards */
+.strength-card::after, .metric-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.6s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.strength-card:hover::after, .metric-item:hover::after {
+    left: 100%;
+    top: 100%;
+}
+/* Spinning Gear Animation for Engineering Icons */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.strength-card:hover .strength-icon, 
+.industry-item:hover i {
+    animation: spin-slow 8s linear infinite;
+}
+
+/* Drawing Line Animation for the Section Underline */
+@keyframes lineDraw {
+    0% { width: 0; left: 50%; }
+    100% { width: 100%; left: 0; }
+}
+
+.section-underline {
+    animation: lineDraw 1s cubic-bezier(1, 0, 0, 1) forwards;
+}
+/* Animated Blueprint Grid Background */
+.overview-section, .trust-section {
+    background-image: 
+        linear-gradient(var(--teal-muted) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-muted) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to { background-position: 50px 50px; }
+}/* Magnetic Hover Feel */
+.kg-cta-button {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+}
+
+.kg-cta-button:active {
+    transform: scale(0.95);
+}
+
+/* Inner Glow Pulse */
+@keyframes innerPulse {
+    0% { box-shadow: 0 0 0 0 rgba(110, 202, 203, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(110, 202, 203, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(110, 202, 203, 0); }
+}
+
+.kg-cta-button:hover {
+    animation: innerPulse 1.5s infinite;
+}
+@keyframes countIn {
+    from { opacity: 0; filter: blur(5px); transform: translateY(10px); }
+    to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+.metric-value {
+    display: inline-block;
+    animation: countIn 1s ease-out forwards;
+}
+
+/* Scroll-driven Reveal (Modern Browsers) */
+@supports (view-timeline: --section) {
+    .capability-item {
+        view-timeline-name: --item;
+        view-timeline-axis: block;
+        animation-timeline: --item;
+        animation-name: fadeUp;
+        animation-range: entry 10% cover 30%;
+        animation-fill-mode: both;
+    }
+}
+/* Enhanced Section Titles for Centering & Mobile */
+.section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.75rem, 5vw, 3rem); /* Adjusted for better mobile scaling */
+    font-weight: 800;
+    color: var(--black);
+    margin: 0 auto 1rem; /* Centers the block itself */
+    text-align: center;   /* Centers the text inside the block */
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    position: relative;
+    max-width: 900px;     /* Prevents awkward long lines on ultra-wide screens */
+    
+    /* Animation Base */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Ensure the underline also stays centered */
+.section-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal-primary), var(--teal-dark));
+    margin: 0 auto 2.5rem; /* The "auto" left/right is key for centering */
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 768px) {
+    .section-title {
+        padding: 0 10px; /* Prevents text from hitting screen edges */
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Handle the <br> tag in the third title on mobile */
+    .section-title br {
+        display: none; /* Hides the break on mobile to let text flow naturally */
+    }
+}
+/* ============================================
+   FIXED SECTION TITLES - CENTER & RESPONSIVE
+   ============================================ */
+
+/* Enhanced Section Titles with Center Fix */
+.section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--black);
+    margin: 0 auto 1rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    padding: 0 1rem;
+    display: block;
+    
+    /* Animation Base */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Special handling for titles with line breaks */
+.section-title.has-line-break {
+    display: inline-block;
+    text-align: center;
+}
+
+/* Ensure the underline also stays centered */
+.section-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal-primary), var(--teal-dark));
+    margin: 0 auto 2.5rem;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        padding: 0 15px;
+        word-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.4;
+        margin: 0 auto 0.75rem;
+    }
+    
+    /* Handle titles with <br> tags on mobile */
+    .section-title br {
+        display: none;
+    }
+    
+    /* Specific fix for "Manufacturing Reliability & Industry Recognition" */
+    .section-title.manufacturing-reliability {
+        font-size: clamp(1.3rem, 5vw, 2rem);
+        word-spacing: normal;
+    }
+    
+    .section-underline {
+        width: 60px;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Small Mobile Optimization */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+        padding: 0 10px;
+        line-height: 1.3;
+    }
+    
+    /* Adjust line height for multi-word titles */
+    .section-title:nth-of-type(3) {
+        font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+    }
+}
+
+/* Tablet Optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .section-title {
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+        padding: 0 2rem;
+    }
+    
+    /* Show line breaks on tablet but with proper spacing */
+    .section-title br {
+        display: inline;
+    }
+}
+
+/* For titles with specific needs - apply these classes in your HTML */
+
+/* Class for titles with line breaks (like the third one) */
+.section-title.with-break {
+    display: inline-block;
+    text-align: center;
+}
+
+/* Alternative: Remove <br> and use CSS instead */
+.section-title.no-br {
+    display: block;
+}
+
+.section-title.no-br::after {
+    content: '\A'; /* Line break character */
+    white-space: pre;
+}
+
+/* Responsive text wrapping for long titles */
+@media (max-width: 768px) {
+    .section-title {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* For very long words that might break layout */
+.section-title {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Add this JavaScript alternative to handle <br> tags responsively */
+
+/* If you want to remove <br> tags on mobile only with JavaScript:
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sectionTitles = document.querySelectorAll('.section-title');
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        sectionTitles.forEach(title => {
+            const brTags = title.querySelectorAll('br');
+            brTags.forEach(br => br.style.display = 'none');
+        });
+    }
+    
+    // Re-check on window resize
+    window.addEventListener('resize', function() {
+        const isMobileNow = window.innerWidth <= 768;
+        sectionTitles.forEach(title => {
+            const brTags = title.querySelectorAll('br');
+            brTags.forEach(br => {
+                br.style.display = isMobileNow ? 'none' : 'inline';
+            });
+        });
+    });
+});
+</script>
+*/
+
+/* Optional: Gradient underline animation for extra polish */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal-primary), var(--teal-dark));
+    transition: width 0.6s ease;
+}
+
+.section-title:hover::after {
+    width: 100px;
+}
+
+/* For the specific problematic titles, add these styles */
+@media (max-width: 768px) {
+    /* Operational & Technical Capabilities */
+    h2.section-title:nth-of-type(1) {
+        font-size: clamp(1.4rem, 5.5vw, 2rem);
+    }
+    
+    /* Manufacturing & Engineering Scope */
+    h2.section-title:nth-of-type(2) {
+        font-size: clamp(1.4rem, 5.5vw, 2rem);
+    }
+    
+    /* Manufacturing Reliability & Industry Recognition */
+    h2.section-title:nth-of-type(3) {
+        font-size: clamp(1.3rem, 5vw, 1.9rem);
+    }
+}
+
+/* Ensure proper spacing in flex/grid containers */
+.container > .section-title {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+/* If using display: flex on parent */
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}/* FIX: Center all section titles */
+.section-title {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+/* FIX: Remove <br> on mobile */
+@media (max-width: 768px) {
+    .section-title br {
+        display: none;
+    }
+}
+
+/* FIX: Ensure titles don't overflow */
+.section-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+.section-title span {
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 0px transparent; }
+    to { text-shadow: 0 0 10px var(--teal-light); }
+}
+/* ============================================
+   TRUST SECTION RESPONSIVE FIXES
+   ============================================ */
+
+/* FIX: Center section title on all screens */
+.trust-section .section-title {
+    text-align: center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+}
+
+/* Remove <br> on mobile for better text flow */
+@media (max-width: 768px) {
+    .trust-section .section-title br {
+        display: none !important;
+    }
+}
+
+/* FIX: Industries grid for mobile - 2x2 layout */
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Mobile: Show 2x2 grid */
+@media (max-width: 768px) {
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        padding: 0 10px !important;
+    }
+    
+    .industry-item {
+        min-height: 120px !important;
+        padding: 1.5rem 0.5rem !important;
+    }
+}
+
+/* Tablet: Show 3x2 grid */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .industries-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.25rem !important;
+    }
+}
+
+/* Desktop: Show 3x2 grid (original layout) */
+@media (min-width: 1025px) {
+    .industries-grid {
+        grid-template-columns: repeat(3, 2fr) !important;
+    }
+}
+
+/* FIX: Industry items - text stays black on hover */
+.industry-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background-color: var(--white);
+    border: 2px solid var(--grey-medium);
+    border-radius: 12px;
+    transition: var(--transition-bounce);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: calc(var(--industry-index, 0) * 0.05s);
+    cursor: pointer;
+}
+
+.industry-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: var(--teal-primary);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--white), var(--teal-muted));
+}
+
+/* FIX: Text stays black on hover */
+.industry-item span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--black) !important; /* Force black color */
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.industry-item:hover span {
+    color: var(--black) !important; /* Keep black on hover */
+    font-weight: 700;
+}
+
+/* Icons color on hover - keep teal */
+.industry-item i {
+    font-size: 2rem;
+    color: var(--teal-primary);
+    margin-bottom: 1rem;
+    transition: var(--transition-bounce);
+}
+
+.industry-item:hover i {
+    transform: rotate(15deg) scale(1.2);
+    color: var(--teal-dark) !important; /* Teal on hover */
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* FIX: Responsive section title sizing */
+.section-title {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--black);
+    margin: 0 auto 1rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    padding: 0 1rem;
+    display: block;
+    
+    /* Animation Base */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Mobile specific title sizes */
+@media (max-width: 768px) {
+    .trust-section .section-title {
+        font-size: clamp(1.4rem, 5vw, 2rem) !important;
+        line-height: 1.4 !important;
+    }
+    
+    .industries-title {
+        font-size: clamp(1.2rem, 4vw, 1.5rem) !important;
+    }
+}
+
+/* Small mobile optimization */
+@media (max-width: 480px) {
+    .trust-section .section-title {
+        font-size: clamp(1.2rem, 4.5vw, 1.6rem) !important;
+    }
+    
+    .industry-item span {
+        font-size: 0.8rem !important;
+    }
+    
+    .industry-item i {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* Trust metrics grid responsiveness */
+.trust-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+    .trust-metrics {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-metrics {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+/* FIX: Better spacing for mobile */
+@media (max-width: 768px) {
+    .trust-section {
+        padding: 3rem 0 !important;
+    }
+    
+    .trust-metrics {
+        margin-bottom: 3rem !important;
+    }
+    
+    .industries-container {
+        margin-top: 2rem !important;
+    }
+}
+
+/* Ensure proper vertical spacing for industry items */
+@media (max-width: 768px) {
+    .industry-item {
+        aspect-ratio: 1/1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .industry-item:hover {
+        transform: scale(0.98) !important;
+    }
+    
+    .industry-item:active {
+        transform: scale(0.95) !important;
+    }
+}
+
+/* ============================================
+   TRUST METRICS HOVER FIXES - FIXED VERSION
+   ============================================ */
+
+/* Base metric item styling */
+.metric-item {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--white);
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: calc(var(--metric-index, 0) * 0.1s);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+/* Hover effect with background */
+.metric-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--teal-primary);
+    background: linear-gradient(135deg, var(--white), var(--teal-muted));
+}
+
+/* Remove the ::before pseudo-element that was covering text */
+.metric-item::before {
+    display: none; /* Remove the covering gradient */
+}
+
+/* METRIC VALUE - stays teal on hover */
+.metric-value {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--teal-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    position: relative;
+    z-index: 2; /* Ensure it's above background */
+    transition: var(--transition-smooth);
+}
+
+.metric-item:hover .metric-value {
+    color: var(--teal-dark);
+    transform: scale(1.1);
+}
+
+/* METRIC LABEL - stays black on hover */
+.metric-label {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.metric-item:hover .metric-label {
+    color: var(--black);
+    font-weight: 700;
+}
+
+/* METRIC DESCRIPTION - stays dark grey/black on hover */
+.metric-description {
+    font-size: 0.875rem;
+    color: var(--grey-dark);
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.metric-item:hover .metric-description {
+    color: var(--black);
+    font-weight: 500;
+}
+
+/* Add a subtle background shine effect instead */
+.metric-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(110, 202, 203, 0.1), 
+        transparent);
+    transition: left 0.7s ease;
+    z-index: 1; /* Below text, above background */
+    pointer-events: none;
+}
+
+.metric-item:hover::after {
+    left: 100%;
+}
+
+/* Alternative: Add border highlight on hover */
+.metric-item {
+    position: relative;
+}
+
+.metric-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--teal-primary), 
+        var(--teal-dark), 
+        var(--teal-primary));
+    border-radius: 14px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.metric-item:hover::before {
+    opacity: 1;
+}
+
+.metric-item > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* For ISO certification with longer text */
+.metric-item:nth-child(2) .metric-value {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .metric-item {
+        padding: 2rem 1rem;
+    }
+    
+    .metric-value {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+    }
+    
+    .metric-item:nth-child(2) .metric-value {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+    }
+    
+    .metric-label {
+        font-size: 0.8125rem;
+        letter-spacing: 1px;
+    }
+    
+    .metric-description {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .metric-item {
+        padding: 1.75rem 0.875rem;
+    }
+    
+    .metric-value {
+        font-size: 1.75rem;
+    }
+    
+    .metric-item:nth-child(2) .metric-value {
+        font-size: 1.25rem;
+    }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .metric-item:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .metric-item:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Alternative simpler hover effect */
+.metric-item {
+    background: var(--white);
+    border: 2px solid var(--grey-medium);
+}
+
+.metric-item:hover {
+    background: var(--white); /* Keep white background */
+    border-color: var(--teal-primary);
+    box-shadow: 
+        0 10px 30px rgba(110, 202, 203, 0.15),
+        inset 0 0 0 100px rgba(110, 202, 203, 0.05);
+}
+
+/* Ensure text remains visible */
+.metric-item:hover .metric-label,
+.metric-item:hover .metric-description {
+    color: var(--black) !important;
+}

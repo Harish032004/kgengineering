@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Efficient Motors | Industrial Catalog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary-aqua: #00A8A8;
+            --primary-aqua-light: #E6F7F7;
+            --primary-aqua-dark: #008080;
+            --neutral-gray-light: #F8F9FA;
+            --neutral-gray: #E9ECEF;
+            --neutral-gray-dark: #6C757D;
+            --neutral-black: #212529;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --border-radius: 8px;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--neutral-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Section Container */
+        .motors-section {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .accent-divider {
+            width: 120px;
+            height: 4px;
+            background-color: var(--primary-aqua);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: var(--transition);
+            will-change: transform;
+        }
+
+        /* Product Card */
+        .product-card {
+            flex: 0 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--neutral-gray);
+            padding: 24px;
+            margin: 0 12px;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 4px 12px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            height: 420px;
+            min-width: 320px;
+            max-width: 350px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 168, 168, 0.12);
+            border-color: var(--primary-aqua-light);
+        }
+
+        .product-image-container {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background-color: var(--neutral-gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-specs {
+            color: var(--primary-aqua-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--neutral-gray);
+        }
+
+        .product-description {
+            color: var(--neutral-gray-dark);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .feature-tag {
+            background-color: var(--primary-aqua-light);
+            color: var(--primary-aqua-dark);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 168, 168, 0.2);
+        }
+
+        .quote-button {
+            background-color: var(--primary-aqua);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 14px 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .quote-button:hover {
+            background-color: var(--primary-aqua-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 128, 128, 0.2);
+        }
+
+        .quote-button:active {
+            transform: translateY(0);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Navigation Arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: 1px solid var(--neutral-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .carousel-nav:hover {
+            background-color: var(--primary-aqua);
+            border-color: var(--primary-aqua);
+            color: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .carousel-nav.prev {
+            left: 10px;
+        }
+
+        .carousel-nav.next {
+            right: 10px;
+        }
+
+        .nav-arrow {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1199px) {
+            .motors-section {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .product-card {
+                min-width: 300px;
+                height: 410px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .motors-section {
+                padding: 50px 18px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .product-card {
+                min-width: 280px;
+                height: 400px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .motors-section {
+                padding: 40px 16px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .carousel-nav {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .product-card {
+                min-width: 85vw;
+                height: 420px;
+                margin: 0 8px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .motors-section {
+                padding: 30px 12px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .accent-divider {
+                width: 90px;
+                height: 3px;
+            }
+            
+            .product-card {
+                min-width: 90vw;
+                height: 430px;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .nav-arrow {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Swipe instructions for mobile */
+        .swipe-hint {
+            text-align: center;
+            color: var(--neutral-gray-dark);
+            font-size: 0.9rem;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .swipe-hint {
+                display: block;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .carousel-nav:focus,
+        .quote-button:focus {
+            outline: 2px solid var(--primary-aqua);
+            outline-offset: 2px;
+        }
+
+        /* Loading state for images */
+        .product-image-container::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--neutral-gray-light);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-image-container.loading::before {
+            opacity: 1;
+        }
+
+        /* Infinite scroll indicator */
+        .carousel-status {
+            text-align: center;
+            color: var(--neutral-gray-dark);
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="motors-section" aria-labelledby="section-title">
+        <div class="section-header">
+            <h1 id="section-title" class="section-title">ENERGY EFFICIENT MOTORS</h1>
+            <div class="accent-divider"></div>
+        </div>
+        
+        <div class="carousel-container">
+            <button class="carousel-nav prev" aria-label="Previous product">
+                <span class="nav-arrow">‹</span>
+            </button>
+            
+            <div class="carousel-track" id="carousel-track">
+                <!-- Product cards will be dynamically inserted here -->
+            </div>
+            
+            <button class="carousel-nav next" aria-label="Next product">
+                <span class="nav-arrow">›</span>
+            </button>
+        </div>
+        
+        <p class="swipe-hint">Swipe left or right to browse products</p>
+        <p class="carousel-status" id="carousel-status">Showing product 1 of 6</p>
+    </section>
+
+    <script>
+        // Motor products data
+        const motorProducts = [
+            {
+                id: 1,
+                name: "AQUA-SERIES PMSM MOTOR",
+                specs: "15 kW • 480V • 1800 RPM",
+                description: "High-efficiency permanent magnet synchronous motor with advanced thermal management system. Ideal for industrial pumps and compressors.",
+                features: ["PMSM", "High Torque", "IP55 Rated", "Low Noise"],
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                power: "15",
+                voltage: "480",
+                speed: "1800"
+            },
+            {
+                id: 2,
+                name: "INDUSTRIAL IE4 MOTOR",
+                specs: "22 kW • 400V • 1500 RPM",
+                description: "Premium efficiency IE4 induction motor with optimized rotor design for maximum energy savings in continuous operation.",
+                features: ["IE4 Efficiency", "Cast Iron Frame", "Class F Insulation", "VFD Ready"],
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                power: "22",
+                voltage: "400",
+                speed: "1500"
+            },
+            {
+                id: 3,
+                name: "TORQMAX BRUSHLESS DC",
+                specs: "7.5 kW • 240V • 3000 RPM",
+                description: "Compact brushless DC motor with high power density. Perfect for automated machinery and conveyor systems.",
+                features: ["BLDC", "Compact Design", "High Speed", "Easy Mounting"],
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w-600&q=80",
+                power: "7.5",
+                voltage: "240",
+                speed: "3000"
+            },
+            {
+                id: 4,
+                name: "HYDROGUARD SUBMERSIBLE",
+                specs: "11 kW • 380V • 2900 RPM",
+                description: "Waterproof submersible motor designed for pumping applications. Stainless steel construction with double mechanical seal.",
+                features: ["Submersible", "Stainless Steel", "Corrosion Resistant", "IP68 Rated"],
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                power: "11",
+                voltage: "380",
+                speed: "2900"
+            },
+            {
+                id: 5,
+                name: "ECOFAN VARIABLE SPEED",
+                specs: "5.5 kW • 415V • 1000-3000 RPM",
+                description: "Variable speed motor with integrated drive for HVAC applications. Optimized for fan and blower loads.",
+                features: ["Variable Speed", "Integrated Drive", "Soft Start", "Energy Saver"],
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                power: "5.5",
+                voltage: "415",
+                speed: "1000-3000"
+            },
+            {
+                id: 6,
+                name: "HEAVY-DUTY CRUSHER MOTOR",
+                specs: "45 kW • 480V • 1200 RPM",
+                description: "High-torque crusher duty motor with reinforced construction for heavy industrial applications like stone crushers and shredders.",
+                features: ["Crusher Duty", "High Inertia", "Thermal Protection", "Dust Proof"],
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                power: "45",
+                voltage: "480",
+                speed: "1200"
+            }
+        ];
+
+        // Carousel state
+        let currentIndex = 0;
+        let cardWidth = 0;
+        let cardsPerView = 3;
+        let isAnimating = false;
+        let startX = 0;
+        let isDragging = false;
+
+        // DOM elements
+        const carouselTrack = document.getElementById('carousel-track');
+        const prevButton = document.querySelector('.carousel-nav.prev');
+        const nextButton = document.querySelector('.carousel-nav.next');
+        const carouselStatus = document.getElementById('carousel-status');
+
+        // Initialize carousel
+        function initCarousel() {
+            // Determine cards per view based on screen width
+            updateCardsPerView();
+            
+            // Create product cards
+            createProductCards();
+            
+            // Clone cards for infinite scroll effect
+            cloneCardsForInfiniteScroll();
+            
+            // Calculate card width
+            updateCardWidth();
+            
+            // Position carousel at the start
+            positionCarousel();
+            
+            // Add event listeners
+            addEventListeners();
+            
+            // Update status
+            updateStatus();
+        }
+
+        // Create product cards from data
+        function createProductCards() {
+            carouselTrack.innerHTML = '';
+            
+            motorProducts.forEach(product => {
+                const card = createProductCard(product);
+                carouselTrack.appendChild(card);
+            });
+        }
+
+        // Create a single product card element
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.dataset.id = product.id;
+            
+            // Create feature tags HTML
+            const featureTags = product.features.map(feature => 
+                `<span class="feature-tag">${feature}</span>`
+            ).join('');
+            
+            card.innerHTML = `
+                <div class="product-image-container">
+                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                </div>
+                <h3 class="product-title">${product.name}</h3>
+                <div class="product-specs">${product.specs}</div>
+                <p class="product-description">${product.description}</p>
+                <div class="feature-tags">
+                    ${featureTags}
+                </div>
+                <button class="quote-button" data-product='${JSON.stringify(product).replace(/'/g, "&apos;")}'>
+                    <i class="fab fa-whatsapp whatsapp-icon"></i> Get a Quote →
+                </button>
+            `;
+            
+            return card;
+        }
+
+        // Clone cards for infinite scroll
+        function cloneCardsForInfiniteScroll() {
+            // Clone first few cards and append to end
+            for (let i = 0; i < cardsPerView; i++) {
+                const card = carouselTrack.children[i].cloneNode(true);
+                card.dataset.clone = true;
+                carouselTrack.appendChild(card);
+            }
+            
+            // Clone last few cards and prepend to beginning
+            const totalCards = motorProducts.length;
+            for (let i = totalCards - 1; i >= totalCards - cardsPerView; i--) {
+                const card = carouselTrack.children[i].cloneNode(true);
+                card.dataset.clone = true;
+                carouselTrack.prepend(card);
+            }
+            
+            // Update current index to account for prepended clones
+            currentIndex = cardsPerView;
+        }
+
+        // Update cards per view based on screen width
+        function updateCardsPerView() {
+            const width = window.innerWidth;
+            
+            if (width <= 767) {
+                cardsPerView = 1;
+            } else if (width <= 991) {
+                cardsPerView = 2;
+            } else if (width <= 1199) {
+                cardsPerView = 3;
+            } else {
+                cardsPerView = 4;
+            }
+        }
+
+        // Calculate card width including margins
+        function updateCardWidth() {
+            if (carouselTrack.children.length > 0) {
+                const card = carouselTrack.children[0];
+                const style = window.getComputedStyle(card);
+                const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+                cardWidth = card.offsetWidth + margin;
+            }
+        }
+
+        // Position carousel based on current index
+        function positionCarousel(instant = false) {
+            if (instant) {
+                carouselTrack.style.transition = 'none';
+            } else {
+                carouselTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }
+            
+            const offset = -currentIndex * cardWidth;
+            carouselTrack.style.transform = `translateX(${offset}px)`;
+            
+            // If instant transition, force reflow and restore transition
+            if (instant) {
+                carouselTrack.offsetHeight; // Trigger reflow
+                carouselTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            }
+        }
+
+        // Handle infinite scroll loop
+        function handleInfiniteScroll() {
+            const totalCards = motorProducts.length;
+            const totalClonedCards = cardsPerView * 2;
+            const totalDisplayCards = totalCards + totalClonedCards;
+            
+            // If we're at the beginning (cloned cards at start), jump to real end
+            if (currentIndex < cardsPerView) {
+                currentIndex = totalCards + cardsPerView;
+                positionCarousel(true);
+            }
+            // If we're at the end (cloned cards at end), jump to real start
+            else if (currentIndex >= totalCards + cardsPerView) {
+                currentIndex = cardsPerView;
+                positionCarousel(true);
+            }
+        }
+
+        // Navigate to next product
+        function nextProduct() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            currentIndex++;
+            
+            positionCarousel();
+            updateStatus();
+            
+            setTimeout(() => {
+                handleInfiniteScroll();
+                isAnimating = false;
+            }, 500);
+        }
+
+        // Navigate to previous product
+        function prevProduct() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            currentIndex--;
+            
+            positionCarousel();
+            updateStatus();
+            
+            setTimeout(() => {
+                handleInfiniteScroll();
+                isAnimating = false;
+            }, 500);
+        }
+
+        // Update carousel status display
+        function updateStatus() {
+            const actualIndex = ((currentIndex - cardsPerView) % motorProducts.length + motorProducts.length) % motorProducts.length;
+            const productNumber = actualIndex === 0 ? motorProducts.length : actualIndex;
+            carouselStatus.textContent = `Showing product ${productNumber} of ${motorProducts.length}`;
+        }
+
+        // Generate WhatsApp link
+        function generateWhatsAppLink(product) {
+            const phoneNumber = "+919789029012";
+            const message = `Hello,\n\nI'm interested in the following motor:\n\nProduct Name: ${product.name}\nPower: ${product.power} kW\nVoltage: ${product.voltage}V\nSpeed: ${product.speed} RPM\n\nPlease share pricing and availability.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        }
+
+        // Handle WhatsApp quote button click
+        function handleQuoteClick(product) {
+            const url = generateWhatsAppLink(product);
+            window.open(url, '_blank');
+        }
+
+        // Touch/swipe handling for mobile
+        function handleTouchStart(e) {
+            if (window.innerWidth > 767) return;
+            
+            startX = e.touches ? e.touches[0].clientX : e.clientX;
+            isDragging = true;
+            carouselTrack.style.transition = 'none';
+        }
+
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            
+            const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+            const diff = startX - currentX;
+            
+            const offset = -currentIndex * cardWidth - diff;
+            carouselTrack.style.transform = `translateX(${offset}px)`;
+        }
+
+        function handleTouchEnd(e) {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+            const diff = startX - endX;
+            
+            // Minimum drag distance to trigger navigation
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextProduct();
+                } else {
+                    prevProduct();
+                }
+            } else {
+                // Return to current position
+                positionCarousel();
+            }
+        }
+
+        // Add event listeners
+        function addEventListeners() {
+            // Navigation buttons
+            prevButton.addEventListener('click', prevProduct);
+            nextButton.addEventListener('click', nextProduct);
+            
+            // Quote buttons (using event delegation)
+            carouselTrack.addEventListener('click', (e) => {
+                const quoteButton = e.target.closest('.quote-button');
+                if (quoteButton) {
+                    const productData = quoteButton.dataset.product;
+                    const product = JSON.parse(productData.replace(/&apos;/g, "'"));
+                    handleQuoteClick(product);
+                }
+            });
+            
+            // Window resize
+            window.addEventListener('resize', () => {
+                updateCardsPerView();
+                updateCardWidth();
+                positionCarousel(true);
+            });
+            
+            // Touch/swipe events for mobile
+            carouselTrack.addEventListener('touchstart', handleTouchStart);
+            carouselTrack.addEventListener('touchmove', handleTouchStart);
+            carouselTrack.addEventListener('touchend', handleTouchEnd);
+            
+            // Mouse drag events for desktop testing
+            carouselTrack.addEventListener('mousedown', handleTouchStart);
+            carouselTrack.addEventListener('mousemove', (e) => {
+                if (isDragging) handleTouchMove(e);
+            });
+            carouselTrack.addEventListener('mouseup', handleTouchEnd);
+            carouselTrack.addEventListener('mouseleave', handleTouchEnd);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevProduct();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    nextProduct();
+                }
+            });
+            
+            // Prevent image drag
+            const images = carouselTrack.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('dragstart', (e) => e.preventDefault());
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initCarousel);
+        
+        // Fallback initialization
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        } else {
+            initCarousel();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K G Engineering Services | Precision Industrial Solutions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+
+
+<section class="brands-section"id="brands-provided ">
+    <div class="brands-container" >
+        <!-- Header with divider lines -->
+        <div class="brands-header">
+            <div class="header-line"></div>
+            <h2 class="section-title">BRANDS WE PROVIDE</h2>
+            <div class="header-line"></div>
+        </div>
+
+        <!-- Brands Logo Row -->
+        <div class="brands-logos">
+             <div class="brands-track">
+            <!-- Brand 1 -->
+            <div class="brand-item">
+                <img src="devtank.webp" 
+                     alt="Siemens" 
+                     class="brand-logo"
+                     loading="lazy">
+            </div>
+            
+            <!-- Brand 2 -->
+            <div class="brand-item">
+                <img src="ecolab.webp" 
+                     alt="Schneider Electric" 
+                     class="brand-logo"
+                     loading="lazy">
+            </div>
+            
+            <!-- Brand 3 -->
+            <div class="brand-item">
+                <img src="eneos.webp" 
+                     alt="Fanuc" 
+                     class="brand-logo"
+                     loading="lazy">
+            </div>
+            
+            <!-- Brand 4 -->
+            <div class="brand-item">
+                <img src="ledl.webp" 
+                     alt="Bosch" 
+                     class="brand-logo"
+                     loading="lazy">
+            </div>
+            
+          
+            
+            <!-- Brand 5 -->
+            <div class="brand-item">
+                <img src="torq.webp" 
+                     alt="Mitsubishi Electric" 
+                     class="brand-logo"
+                     loading="lazy">
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+   
+    <script src="script.js"></script>
+    <script>// WhatsApp Quote Button Script
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all quote buttons
+    const quoteButtons = document.querySelectorAll('.quote-btn');
+    
+    // Add click event to each button
+    quoteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior
+            
+            // Your WhatsApp number
+            const whatsappNumber = '9884202336';
+            
+            // Get product details from data attributes
+            const productName = this.getAttribute('data-product') || 'your product/service';
+            const productSpec = this.getAttribute('data-spec') || 'more details';
+            
+            // Create the message
+            const message = `Hi! I am interested in getting a quote for:\n\n` +
+                           `*Product/Service:* ${productName}\n` +
+                           `*Specifications:* ${productSpec}\n\n` +
+                           `Please send me the pricing and details. Thank you!`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Optional: Add click animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+    });
+});
+
+// Alternative: Simple function for onclick attribute
+function sendQuoteRequest() {
+    const whatsappNumber = '9884202336';
+    const message = `Hi! I am interested in getting a quote for your products/services. Please send me the pricing and details. Thank you!`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+<script src="try.js"></script>
+<style>
+    .navbar-toggle {
+        color: white !important;
+    }
+</style>
+
+
+<script>
+    const track = document.getElementById('track');
+    const container = document.getElementById('trackContainer');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    
+    let originalCards = Array.from(track.children);
+    let index = 0;
+    let isTransitioning = false;
+
+    // --- Dynamic Cloning for Infinite Scroll ---
+    const cloneCount = 4;
+    for(let i = 0; i < cloneCount; i++) {
+        track.appendChild(originalCards[i].cloneNode(true));
+        track.insertBefore(originalCards[originalCards.length - 1 - i].cloneNode(true), track.firstChild);
+    }
+
+    const updateCarousel = (instant = false) => {
+        const cardWidth = track.querySelector('.card-wrapper').offsetWidth;
+        const offset = (index + cloneCount) * cardWidth;
+        track.style.transition = instant ? 'none' : `transform var(--transition-speed) var(--easing)`;
+        track.style.transform = `translateX(-${offset}px)`;
+    };
+
+    const next = () => { if(!isTransitioning) { isTransitioning = true; index++; updateCarousel(); }};
+    const prev = () => { if(!isTransitioning) { isTransitioning = true; index--; updateCarousel(); }};
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (index >= originalCards.length) { index = 0; updateCarousel(true); }
+        if (index <= -1) { index = originalCards.length - 1; updateCarousel(true); }
+    });
+
+    // --- Touch Swipe Support ---
+    let startX = 0;
+    container.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive: true});
+    container.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) next();
+        if (endX - startX > 50) prev();
+    }, {passive: true});
+
+    window.addEventListener('resize', () => updateCarousel(true));
+    window.onload = () => updateCarousel(true);
+
+    function sendWhatsApp(element) {
+        const card = element.closest('.motor-card');
+        const name = card.querySelector('.motor-title').innerText;
+        const specs = card.querySelector('.motor-specs');
+        const msg = `Hello,\n\nI’m interested in:\nProduct: ${name}\nSpecs: ${specs.innerText}\n\nPlease share pricing.`;
+        window.open(`https://wa.me/919884202336?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
+
+ <script>
+        // KGS Hero Controller - Unique Names
+        class KGSHeroController {
+            constructor() {
+                this.videos = document.querySelectorAll('.kgs-video-slide');
+                this.indicators = document.querySelectorAll('.kgs-indicator');
+                this.progressBar = document.getElementById('kgs-progressBar');
+                this.prevBtn = document.querySelector('.kgs-prev');
+                this.nextBtn = document.querySelector('.kgs-next');
+                
+                this.currentIndex = 0;
+                this.totalVideos = this.videos.length;
+                this.autoRotateInterval = 3000;
+                this.rotationTimer = null;
+                this.manualOverrideTimer = null;
+                this.isAutoRotating = true;
+                
+                this.initializeKGSHero();
+            }
+            
+            initializeKGSHero() {
+                // Start first video
+                this.videos[0].play();
+                
+                // Setup event listeners
+                this.setupKGSEvents();
+                
+                // Start auto rotation
+                this.startKGSRotation();
+                this.resetKGSProgress();
+            }
+            
+            setupKGSEvents() {
+                // Arrow buttons
+                this.prevBtn.addEventListener('click', () => this.kgsNavigate(-1));
+                this.nextBtn.addEventListener('click', () => this.kgsNavigate(1));
+                
+                // Indicators
+                this.indicators.forEach(indicator => {
+                    indicator.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.dataset.index);
+                        this.kgsGoToVideo(index);
+                    });
+                });
+            }
+            
+            kgsNavigate(direction) {
+                const newIndex = (this.currentIndex + direction + this.totalVideos) % this.totalVideos;
+                this.kgsSwitchVideo(newIndex);
+                this.handleKGSManualInteraction();
+            }
+            
+            kgsGoToVideo(index) {
+                if (index !== this.currentIndex) {
+                    this.kgsSwitchVideo(index);
+                    this.handleKGSManualInteraction();
+                }
+            }
+            
+            kgsSwitchVideo(newIndex) {
+                // Hide current video
+                this.videos[this.currentIndex].classList.remove('active');
+                this.indicators[this.currentIndex].classList.remove('active');
+                this.videos[this.currentIndex].pause();
+                
+                // Update index
+                this.currentIndex = newIndex;
+                
+                // Show new video
+                this.videos[this.currentIndex].currentTime = 0;
+                this.videos[this.currentIndex].play();
+                this.videos[this.currentIndex].classList.add('active');
+                this.indicators[this.currentIndex].classList.add('active');
+                
+                // Reset progress bar
+                this.resetKGSProgress();
+            }
+            
+            handleKGSManualInteraction() {
+                // Stop auto rotation
+                this.isAutoRotating = false;
+                clearInterval(this.rotationTimer);
+                
+                // Resume after 8 seconds
+                clearTimeout(this.manualOverrideTimer);
+                this.manualOverrideTimer = setTimeout(() => {
+                    this.isAutoRotating = true;
+                    this.startKGSRotation();
+                }, 8000);
+            }
+            
+            startKGSRotation() {
+                if (!this.isAutoRotating) return;
+                
+                clearInterval(this.rotationTimer);
+                this.rotationTimer = setInterval(() => {
+                    const newIndex = (this.currentIndex + 1) % this.totalVideos;
+                    this.kgsSwitchVideo(newIndex);
+                }, this.autoRotateInterval);
+            }
+            
+            resetKGSProgress() {
+                // Reset progress bar animation
+                this.progressBar.style.transition = 'none';
+                this.progressBar.style.transform = 'translateX(-100%)';
+                
+                // Force reflow
+                void this.progressBar.offsetWidth;
+                
+                // Start new animation
+                this.progressBar.style.transition = `transform ${this.autoRotateInterval}ms linear`;
+                this.progressBar.style.transform = 'translateX(0%)';
+            }
+        }
+        
+        // Initialize KGS Hero
+        document.addEventListener('DOMContentLoaded', () => {
+            const kgsHero = new KGSHeroController();
+            
+            // Pause when tab is hidden
+            document.addEventListener('visibilitychange', () => {
+                const activeVideo = document.querySelector('.kgs-video-slide.active');
+                if (document.hidden) {
+                    activeVideo.pause();
+                } else {
+                    activeVideo.play();
+                }
+            });
+        });
+    </script>
+  
+<script>
+if (window.innerWidth <= 600) {
+    const track = document.querySelector('.brands-track');
+
+    // duplicate logos
+    track.innerHTML += track.innerHTML;
+
+    let position = 0;
+    const speed = 0.5; // smaller = slower
+
+    function scrollLogos() {
+        position -= speed;
+
+        if (Math.abs(position) >= track.scrollWidth / 2) {
+            position = 0; // silent reset
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(scrollLogos);
+    }
+
+    scrollLogos();
+}
+</script>
+
+</body>
+</html>

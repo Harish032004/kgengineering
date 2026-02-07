@@ -1,0 +1,48 @@
+/* Alternative: Always show overlay content on mobile without toggle */
+@media (max-width: 768px) {
+    .solution-overlay {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        padding: 0;
+        margin-top: 20px;
+        display: block;
+        order: 3;
+    }
+    
+    .overlay-content {
+        transform: none;
+        color: var(--charcoal-light);
+        padding: 20px;
+        background: var(--light-grey);
+        border-radius: 12px;
+        border-left: 4px solid var(--primary-teal);
+    }
+    
+    .overlay-content h4 {
+        color: var(--charcoal);
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .overlay-content li {
+        font-size: 1rem;
+        padding: 8px 0 8px 20px;
+    }
+    
+    /* Remove hover effects on mobile */
+    .solution-inner::before,
+    .solution-inner::after,
+    .solution-item:hover .solution-inner,
+    .solution-item:hover .solution-icon,
+    .solution-item:hover .solution-name,
+    .solution-item:hover .solution-tag,
+    .solution-item:hover .solution-arrow {
+        transform: none;
+        opacity: 1;
+        background: initial;
+        color: initial;
+    }
+}
